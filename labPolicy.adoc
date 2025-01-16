@@ -1,0 +1,10 @@
+=== Attendance and participation
+
+You are expected to attend all labs. Although lectures will be recorded, I
+recommend you come to class.  Students who perform poorly in this class
+correlate with those who regularly miss lecture. Participation in class will
+count towards your participation grade, which is used to nudge your grade when
+you are on a boundary.  For example, a student with a B+/A- average and a strong
+attendance and participation record would receive an A-, while a student with a
+weak record would receive a B+
+

@@ -1,0 +1,140 @@
+[cols="1,2,6a", options="header"]
+|===
+| Week 
+| Date 
+| Agenda
+
+//-----------------------------
+| 1
+| January 21, 23 anchor:week01[]
+| *Introductions, Review Systems Programming* 
+
+* Topics: Command line, Compiling and Building, C/C++, System Calls
+* Reading: Tannenbaum 1.1-1.4, 1.6
+* link:assts/asst01.html[Assignment 01]: Due January 24
+* Lab Jan 23: Git!
+
+//-----------------------------
+| 2 
+| January 28, 30 anchor:week02[]
+| *Processes and IPC* 
+
+* Topics: 
+* Reading: Tannenbaum 2.1-2.2
+* Lab Jan 30
+* link:assts/asst02.html[Assignment 02]: Due Jan 31
+
+//-----------------------------
+|3
+|February 4, 6 anchor:week03[]
+|*Threads and synchronization* 
+
+* Topics: 
+* Reading: Tannenbaum 2.3, 2.5
+* Lab Feb 6
+* link:assts/asst03.html[Assignment 03]: Due Feb 7
+
+//-----------------------------
+|4
+|February 11, 13 anchor:week04[]
+|*Scheduling*
+
+* Topics: 
+* Read: Tannenbaum 2.4 
+* Lab Feb 13
+* link:assts/asst04.html[Assignment 04]: Due Feb 14
+
+//-----------------------------
+|5
+|February 18, 20 anchor:week05[]
+|*Deadlocks* 
+
+* Read: Tannenbaum Chapter 6 
+* Lab Feb 20: **Code Jam 02** 
+
+//-----------------------------
+|6
+|February 25, 27 anchor:week06[]
+|*Memory Management* 
+
+* Read: Tannenbaum Chapter 3 
+* link:assts/asst05.html[Assignment 05]: Due Feb 28
+* Lab Feb 27 
+
+//-----------------------------
+|7
+|March 4,6 anchor:week07[]
+|*Virtual memory and paging* 
+
+* Read: Tannenbaum Chapter 3
+* Lab March 6
+* **Exam 01**
+
+//-----------------------------
+|8
+|March 11, 13 anchor:week08[]
+|*Spring Break*
+
+* *NO LECTURES, LABS, HOMEWORKS*
+
+//-----------------------------
+|9
+|March 18, 20 anchor:week09[]
+|*Paging and segmentation* 
+
+* Read: Tannenbaum Chapter 4
+* link:assts/asst05.html[Assignment 06]: 
+* Lab March 20
+
+//-----------------------------
+|10
+|March 25, 27 anchor:week10[]
+|*File Systems I* 
+
+* Read: Tannenbaum Chapter 4
+* link:assts/asst06.html[Assignment 07]: 
+* Lab March 27
+
+//-----------------------------
+|11
+|April 1, 3 anchor:week11[]
+|*File Systems II* 
+
+* Lab April 3
+
+//-----------------------------
+|12
+|April 8, 10 anchor:week12[]
+|*I/O and disks* 
+
+* Read: Tannenbaum Chapter 5 
+* link:assts/asst07.html[Assignment 08]: 
+* Lab April 10
+
+//-----------------------------
+|13
+|April 15, 17 anchor:week13[]
+|*Multiple Processors, Virtualization and the Cloud* 
+
+* Read: Tannenbaum Chapter 7 and 8 
+* Lab April 17
+
+//-----------------------------
+|14
+|April 22, 24 anchor:week14[]
+|*Security and Protection* 
+
+* Read: Tannenbaum Chapter 9 and 10 
+* Lab April 24
+
+//-----------------------------
+|15
+|April 29, May 1 anchor:week15[]
+|*Review* 
+
+* Exam 02
+* Lab May 1
+
+|===
+
+
