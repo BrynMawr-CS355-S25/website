@@ -16,12 +16,13 @@ Instructor: link:https://www.cs.brynmawr.edu/~alinen[Aline Normoyle]
 [.anns]
 
 * Welcome!
+* link:assts/asst01.html[Assignment 01] is due January 24th
 
 == Course Info
 
 **Welcome to CS355: Operating Systems**! 
 
-//image::matrix_original.jpg[]
+image::octopus-os.jpg[]
 
 A practical introduction to modern operating systems, using case studies from UNIX,
 MSDOS and the Macintosh. Topics include computer and OS structures, process and
