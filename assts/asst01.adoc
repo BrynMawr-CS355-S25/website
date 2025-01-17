@@ -4,7 +4,7 @@ include::header.adoc[]
 :Author Initials: ASN
 :Date:    2020-08-15
 :Revision: 0.1
-:ASST: A01
+:ASST: a01-USERNAME
 
 = {title}
 
@@ -61,25 +61,28 @@ Pay special attention to the link:../index.html#_schedule[Schedule].
 
 = Hello C++
 
-Verify that you can use Github, git, and C. You can try this using a lab machine, or your own 
+Verify that you can use Github, git, and C/C++. You can try this using a lab machine, or your own 
 machine if you have setup your development environment there. 
 
 [discrete]
-== Fork the repository 
+== Clone the repository 
 
-Clone the repository from link:https://github.com/BrynMawr-CS355-S25[https://github.com/BrynMawr-CS355-S25]: 
+Navigate to this URL: link:https://classroom.github.com/a/OfNvNh5v[https://classroom.github.com/a/OfNvNh5v]
+
+Click on your username. This will create a repository for you. Next, clone it to your local machine.  
 
 [source, subs="attributes"]
 ----
-git clone git@github.com:BrynMawr-CS355-S25/<USERNAME>-cs355-{semester}-assignments[]
+git clone git@github.com:BrynMawr-CS355-S25/{ASST}
 ----
 
 This will download a local copy of the repository to your computer.
 
 [discrete]
-== Build hello.cpp
+== Hello
 
-In the directory `{ASST}`, you will have a sample file, `hello.cpp` and makefile `Makefile`. Try building and running.
+In the directory `{ASST}`, create a file named `hello.cpp`. Implement a 
+program that prints "Hello World" to the console.
 
 [source]
 ----
@@ -88,18 +91,41 @@ $ ./hello
 Hello World
 ----
 
-[discrete]
-== Base16
-
-In the directory, `{ASST}`, implement a program that inputs a binary file and outputs its contents as a hexadecimal string. 
+Check in your file.
 
 [source]
 ----
+$ git add hello.cpp
+$ git commit -m "proof of concept"
+$ git push
+----
+
+[discrete]
+== Base16
+
+In the directory, `{ASST}` edit the file `base16.cpp`. 
+Implement a program that inputs a binary file and outputs its contents to a text file as a hexadecimal string.
+
+[source, subs="quotes"]
+----
+$ **make**
+g++ -g -Wno-unused-variable -Wno-unused-but-set-variable base16.cpp -o base16
+$ **./base16**
+usage: ./base16 < filename >
+$ **./base16 float.bin**
+00002040
+$ **cat float.txt**
+00002040
+$ **hexedit float.bin**
+00000000   00 00 20 40  .. @
 ----
 
 Requirements:
 
-* Compiles with `make`
+* Compiles with `make`. (Do not modify the Makefile)
+* Accepts a file as a command line argument. If not file is given, output a usage message.
+* Reads in a _binary_ file and outputs a _text_ file. The above implementation also prints the contents to the console, in addition to writing the output to a file.
+* The input file should have the extension `.bin`. The output file should have the same base name but with extension `.txt`
 * No memory errors using `valgrind`
 * Adheres to the style guidelines and includes a header comment
 
@@ -113,7 +139,7 @@ $ valgrind ./base16
 ==5184== Memcheck, a memory error detector
 ==5184== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
 ==5184== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
-==5184== Command: ./mathgame
+==5184== Command: ./base16
 ==5184== 
 ==5184== 
 ==5184== HEAP SUMMARY:
@@ -222,9 +248,9 @@ Unfortunately, `valgrind` and `gdb` cannot be run natively on mac. However, you 
 
 Grades are out of 4 points.
 
-* Github setup (0.5 points)
+* Github setup and hello.cpp (1 point)
 * Slack setup and introduction (0.5 points)
-* C program (3 points)
+* C program (2.5 points)
 
 *Code rubrics*
 

@@ -147,24 +147,28 @@ posted on the course webpage!</p>
 <h2 id="_hello_c">4. Hello C++</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Verify that you can use Github, git, and C. You can try this using a lab machine, or your own
+<p>Verify that you can use Github, git, and C/C++. You can try this using a lab machine, or your own
 machine if you have setup your development environment there.</p>
 </div>
-<h3 id="_fork_the_repository" class="discrete">Fork the repository</h3>
+<h3 id="_clone_the_repository" class="discrete">Clone the repository</h3>
 <div class="paragraph">
-<p>Clone the repository from <a href="https://github.com/BrynMawr-CS355-S25">https://github.com/BrynMawr-CS355-S25</a>:</p>
+<p>Navigate to this URL: <a href="https://classroom.github.com/a/OfNvNh5v">https://classroom.github.com/a/OfNvNh5v</a></p>
+</div>
+<div class="paragraph">
+<p>Click on your username. This will create a repository for you. Next, clone it to your local machine.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>git clone git@github.com:BrynMawr-CS355-S25/<USERNAME>-cs355-s25-assignments[]</code></pre>
+<pre class="highlight"><code>git clone git@github.com:BrynMawr-CS355-S25/a01-USERNAME</code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p>This will download a local copy of the repository to your computer.</p>
 </div>
-<h3 id="_build_hello_cpp" class="discrete">Build hello.cpp</h3>
+<h3 id="_hello" class="discrete">Hello</h3>
 <div class="paragraph">
-<p>In the directory <code>A01</code>, you will have a sample file, <code>hello.cpp</code> and makefile <code>Makefile</code>. Try building and running.</p>
+<p>In the directory <code>a01-USERNAME</code>, create a file named <code>hello.cpp</code>. Implement a
+program that prints "Hello World" to the console.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -173,13 +177,33 @@ $ ./hello
 Hello World</code></pre>
 </div>
 </div>
-<h3 id="_base16" class="discrete">Base16</h3>
 <div class="paragraph">
-<p>In the directory, <code>A01</code>, implement a program that inputs a binary file and outputs its contents as a hexadecimal string.</p>
+<p>Check in your file.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code></code></pre>
+<pre class="highlight"><code>$ git add hello.cpp
+$ git commit -m "proof of concept"
+$ git push</code></pre>
+</div>
+</div>
+<h3 id="_base16" class="discrete">Base16</h3>
+<div class="paragraph">
+<p>In the directory, <code>a01-USERNAME</code> edit the file <code>base16.cpp</code>.
+Implement a program that inputs a binary file and outputs its contents to a text file as a hexadecimal string.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>$ <strong>make</strong>
+g++ -g -Wno-unused-variable -Wno-unused-but-set-variable base16.cpp -o base16
+$ <strong>./base16</strong>
+usage: ./base16 < filename >
+$ <strong>./base16 float.bin</strong>
+00002040
+$ <strong>cat float.txt</strong>
+00002040
+$ <strong>hexedit float.bin</strong>
+00000000   00 00 20 40  .. @</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -188,7 +212,16 @@ Hello World</code></pre>
 <div class="ulist">
 <ul>
 <li>
-<p>Compiles with <code>make</code></p>
+<p>Compiles with <code>make</code>. (Do not modify the Makefile)</p>
+</li>
+<li>
+<p>Accepts a file as a command line argument. If not file is given, output a usage message.</p>
+</li>
+<li>
+<p>Reads in a <em>binary</em> file and outputs a <em>text</em> file. The above implementation also prints the contents to the console, in addition to writing the output to a file.</p>
+</li>
+<li>
+<p>The input file should have the extension <code>.bin</code>. The output file should have the same base name but with extension <code>.txt</code></p>
 </li>
 <li>
 <p>No memory errors using <code>valgrind</code></p>
@@ -218,7 +251,7 @@ more about valgrind in week 2 and 3.
 ==5184== Memcheck, a memory error detector
 ==5184== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
 ==5184== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
-==5184== Command: ./mathgame
+==5184== Command: ./base16
 ==5184==
 ==5184==
 ==5184== HEAP SUMMARY:
@@ -234,11 +267,11 @@ more about valgrind in week 2 and 3.
 <h3 id="_submit_your_work_to_github" class="discrete">Submit your work to Github</h3>
 <div class="paragraph">
 <p>Add and check in your program using git and then push your changes to Github.
-Run the following command inside your <code>A01</code> directory.</p>
+Run the following command inside your <code>a01-USERNAME</code> directory.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>$ cd A01
+<pre class="highlight"><code>$ cd a01-USERNAME
 $ git add *.c
 $ git commit -m "Descriptive message"
 $ git push</code></pre>
@@ -427,13 +460,13 @@ A quick way to open terminal is to use spotlight. From the keyboard, type the &l
 <div class="ulist">
 <ul>
 <li>
-<p>Github setup (0.5 points)</p>
+<p>Github setup and hello.cpp (1 point)</p>
 </li>
 <li>
 <p>Slack setup and introduction (0.5 points)</p>
 </li>
 <li>
-<p>C program (3 points)</p>
+<p>C program (2.5 points)</p>
 </li>
 </ul>
 </div>
@@ -468,7 +501,7 @@ have good style.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2025-01-16 13:41:59 -0500
+Last updated 2025-01-17 12:11:56 -0500
 </div>
 </div>
 </body>
