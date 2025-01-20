@@ -9,8 +9,8 @@
 | January 21, 23 anchor:week01[]
 | *Introductions, Review Systems Programming* 
 
-* Topics: Command line, Compiling and Building, C/C++, System Calls
-* Reading: Tannenbaum 1.1-1.4, 1.6
+* Topics: History, Bash, Compiling and Building, C/C++ 
+* Reading: Tannenbaum 1.1-1.6
 * link:assts/asst01.html[Assignment 01]: Due January 24
 * Lab Jan 23: Git!
 
@@ -19,20 +19,22 @@
 | January 28, 30 anchor:week02[]
 | *Processes and IPC* 
 
-* Topics: 
+* Topics: System Calls, Processes, Fork 
 * Reading: Tannenbaum 2.1-2.2
 * Lab Jan 30
 * link:assts/asst02.html[Assignment 02]: Due Jan 31
+* Written Questions (Due Jan 28 in class, Be Brief!): Tannenbaum pgs 81-83: 1, 9, 10, 17, 20, 23, 27, 28
 
 //-----------------------------
 |3
 |February 4, 6 anchor:week03[]
 |*Threads and synchronization* 
 
-* Topics: 
+* Topics: Threads, mutex, pthreads
 * Reading: Tannenbaum 2.3, 2.5
 * Lab Feb 6
 * link:assts/asst03.html[Assignment 03]: Due Feb 7
+* Written Questions (Due Feb 4 in class, Be Brief): Tannenbaum 
 
 //-----------------------------
 |4
@@ -43,6 +45,7 @@
 * Read: Tannenbaum 2.4 
 * Lab Feb 13
 * link:assts/asst04.html[Assignment 04]: Due Feb 14
+* Written Questions (Due Feb 11 in class, Be Brief): Tannenbaum 
 
 //-----------------------------
 |5
@@ -51,6 +54,7 @@
 
 * Read: Tannenbaum Chapter 6 
 * Lab Feb 20: **Code Jam 02** 
+* Written Questions (Due Feb 18 in class, Be Brief): Tannenbaum 
 
 //-----------------------------
 |6
@@ -60,6 +64,7 @@
 * Read: Tannenbaum Chapter 3 
 * link:assts/asst05.html[Assignment 05]: Due Feb 28
 * Lab Feb 27 
+* Written Questions (Due Feb 25 in class, Be Brief): Tannenbaum 
 
 //-----------------------------
 |7
@@ -85,6 +90,7 @@
 * Read: Tannenbaum Chapter 4
 * link:assts/asst05.html[Assignment 06]: 
 * Lab March 20
+* Written Questions (Due March 18 in class, Be Brief): Tannenbaum 
 
 //-----------------------------
 |10
@@ -94,6 +100,7 @@
 * Read: Tannenbaum Chapter 4
 * link:assts/asst06.html[Assignment 07]: 
 * Lab March 27
+* Written Questions (Due March 25 in class, Be Brief): Tannenbaum 
 
 //-----------------------------
 |11
@@ -101,6 +108,7 @@
 |*File Systems II* 
 
 * Lab April 3
+* Written Questions (Due April 1 in class, Be Brief): Tannenbaum 
 
 //-----------------------------
 |12
@@ -110,6 +118,7 @@
 * Read: Tannenbaum Chapter 5 
 * link:assts/asst07.html[Assignment 08]: 
 * Lab April 10
+* Written Questions (Due April 8 in class, Be Brief): Tannenbaum 
 
 //-----------------------------
 |13
@@ -118,6 +127,7 @@
 
 * Read: Tannenbaum Chapter 7 and 8 
 * Lab April 17
+* Written Questions (Due April 15 in class, Be Brief): Tannenbaum 
 
 //-----------------------------
 |14
@@ -126,6 +136,7 @@
 
 * Read: Tannenbaum Chapter 9 and 10 
 * Lab April 24
+* Written Questions (Due April 22 in class, Be Brief): Tannenbaum 
 
 //-----------------------------
 |15

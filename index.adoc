@@ -129,7 +129,7 @@ as a weighted average of all grades according to the following weights:
 
 |===
 |30% | Exams
-|55% | Assignments
+|55% | Assignments, projects, oral exam
 |10% | Written homeworks and discussions
 | 5% | Participation
 |===
