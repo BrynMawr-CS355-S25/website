@@ -17,6 +17,7 @@ Instructor: link:https://www.cs.brynmawr.edu/~alinen[Aline Normoyle]
 
 * Welcome!
 * link:assts/asst01.html[Assignment 01] is due January 24th
+* Written Questions (Due Jan 28 in class, Be Brief!): Tannenbaum pgs 81-83: 1, 9, 10, 17, 20, 23, 27, 28
 
 == Course Info
 
