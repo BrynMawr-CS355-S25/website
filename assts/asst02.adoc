@@ -17,6 +17,8 @@ The goals for this assignment are:
 * Working with system calls: read, write, open, fork, exec, wait
 * C practice/review
 
+NOTE: Get the starter code link:https://classroom.github.com/a/z8JKZurc[here]
+
 :sectnums:
 
 = Microcat
