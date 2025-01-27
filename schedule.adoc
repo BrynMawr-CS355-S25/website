@@ -17,10 +17,10 @@
 //-----------------------------
 | 2 
 | January 28, 30 anchor:week02[]
-| *Processes and IPC* 
+| *Processes* 
 
-* Topics: System Calls, Processes, Fork 
-* Reading: Tannenbaum 2.1-2.2
+* Topics: System Calls, Processes, Signals, Fork
+* Reading: Tannenbaum 2.1
 * Lab Jan 30
 * link:assts/asst02.html[Assignment 02]: Due Feb 2
 * Written Questions (Due Jan 28 in class, Be Brief!): Tannenbaum pgs 81-83: 1, 9, 10, 17, 20, 23, 27, 28
@@ -31,10 +31,10 @@
 |*Threads and synchronization* 
 
 * Topics: Threads, mutex, pthreads
-* Reading: Tannenbaum 2.3, 2.5
+* Reading: Tannenbaum 2.2, 2.3, 2.5
 * Lab Feb 6
 * link:assts/asst03.html[Assignment 03]: Due Feb 9
-* Written Questions (Due Feb 4 in class, Be Brief): Tannenbaum 
+* Written Questions (Due Feb 4 in class, Be Brief): link:questions-week03.txt[Written Questions]
 
 //-----------------------------
 |4
