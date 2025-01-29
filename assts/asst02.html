@@ -140,6 +140,18 @@ All life is precious</code></pre>
 <div class="paragraph">
 <p><em>By Kevin Webb</em></p>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This question is from <a href="https://www.cs.swarthmore.edu/~kwebb/cs45/s24/labs/lab1.html">this lab</a>.
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>In the file, <code>parser.c</code>, implement a function that parses command line input. This function should use <code>readline</code> to get input from the user and then fill in a <code>struct cmd</code> that holds the information needed to execute. Your struct should look as follows.</p>
 </div>
@@ -240,21 +252,18 @@ cmd2_fds[2]: NULL</code></pre>
 <p>Make sure you have no memory errors!</p>
 </li>
 <li>
-<p>You can extend the above struct if you like, but don&#8217;t change the data types!</p>
+<p>You can extend the above struct if you like, but don&#8217;t change the given data types!</p>
+</li>
+<li>
+<p>You can assume that you will have at most one pipe</p>
+</li>
+<li>
+<p>Note that the 2&gt; error.txt, |, and &amp; portions of the command are instructions to the shell and are NOT command ARGV tokens.</p>
+</li>
+<li>
+<p>To simplify parsing, you may assume that nothing other than white space (spaces, newlines, etc.) will appear after an ampersand (&amp;), there will be at most one ampersand, and that ampersands will not appear for any reason other than to specify background tasks.</p>
 </li>
 </ul>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-This question is based on this lab by Kevin Webb from <a href="https://www.cs.swarthmore.edu/~kwebb/cs45/s24/labs/lab1.html">here</a>.
-</td>
-</tr>
-</table>
 </div>
 </div>
 </div>
@@ -504,7 +513,7 @@ have good style.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2025-01-29 12:21:08 -0500
+Last updated 2025-01-29 13:18:30 -0500
 </div>
 </div>
 </body>

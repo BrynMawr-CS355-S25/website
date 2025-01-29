@@ -7,7 +7,7 @@
 //-----------------------------
 | 1
 | January 21, 23 anchor:week01[]
-| *Introductions, Review Systems Programming* 
+| *Introduction, Programming, Bash* 
 
 * Topics: History, Bash, Compiling and Building, C/C++ 
 * Reading: Tannenbaum 1.1-1.6
@@ -19,9 +19,9 @@
 | January 28, 30 anchor:week02[]
 | *Processes* 
 
-* Topics: System Calls, Processes, Signals, Fork
+* Topics: OS Concepts, Processes, Fork, Signals
 * Reading: Tannenbaum 2.1
-* Lab Jan 30
+* link:labs/lab01.html[Lab Jan 30]
 * link:assts/asst02.html[Assignment 02]: Due Feb 2
 * Written Questions (Due Jan 28 in class, Be Brief!): Tannenbaum pgs 81-83: 1, 9, 10, 17, 20, 23, 27, 28
 
@@ -30,9 +30,9 @@
 |February 4, 6 anchor:week03[]
 |*Threads and synchronization* 
 
-* Topics: Threads, mutex, pthreads
+* Topics: System calls, threads, mutex
 * Reading: Tannenbaum 2.2, 2.3, 2.5
-* Lab Feb 6
+* link:labs/lab02.html[Lab Feb 6]
 * link:assts/asst03.html[Assignment 03]: Due Feb 9
 * Written Questions (Due Feb 4 in class, Be Brief): link:questions-week03.txt[Written Questions]
 

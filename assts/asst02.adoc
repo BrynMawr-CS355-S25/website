@@ -80,6 +80,8 @@ Requirements/Hints:
 
 _By Kevin Webb_
 
+NOTE: This question is from link:https://www.cs.swarthmore.edu/~kwebb/cs45/s24/labs/lab1.html[this lab].
+
 In the file, `parser.c`, implement a function that parses command line input. This function should use `readline` to get input from the user and then fill in a `struct cmd` that holds the information needed to execute. Your struct should look as follows. 
 
 [source]
@@ -164,9 +166,10 @@ Requirements/Hints:
 * Use only C commands, such as malloc/free, for this program
 * The comments above are to help you understand what memory you should allocate. Don't print the information in the comments. 
 * Make sure you have no memory errors!
-* You can extend the above struct if you like, but don't change the data types!
-
-NOTE: This question is based on this lab by Kevin Webb from link:https://www.cs.swarthmore.edu/~kwebb/cs45/s24/labs/lab1.html[here].
+* You can extend the above struct if you like, but don't change the given data types!
+* You can assume that you will have at most one pipe
+* Note that the 2> error.txt, |, and & portions of the command are instructions to the shell and are NOT command ARGV tokens.
+* To simplify parsing, you may assume that nothing other than white space (spaces, newlines, etc.) will appear after an ampersand (&), there will be at most one ampersand, and that ampersands will not appear for any reason other than to specify background tasks.
 
 = Simple Shell
 
