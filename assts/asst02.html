@@ -122,7 +122,7 @@ All life is precious</code></pre>
 <p>This is basically the Unix <code>cat</code> command with no flags.</p>
 </li>
 <li>
-<p>Use the file descriptors STDOUT_FILENO and STDIN_FILENO to specify stdout and stdin istreams respectively</p>
+<p>When working with the standard input and standard output streams, either use the defined file descriptors (e.g. <code>STDOUT_FILENO</code>, <code>STDIN_FILENO</code>), or defined file pointers (e.g. <code>stdin</code>, <code>stdout</code>), with either <code>read</code> or <code>fread</code>.</p>
 </li>
 <li>
 <p>Your program should use the system calls, <a href="https://www.man7.org/linux/man-pages/man2/read.2.html">read</a>, <a href="https://www.man7.org/linux/man-pages/man2/write.2.html">write</a>, and <a href="https://www.man7.org/linux/man-pages/man2/open.2.html">open</a>.</p>
@@ -504,7 +504,7 @@ have good style.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2025-01-27 11:05:01 -0500
+Last updated 2025-01-29 12:21:08 -0500
 </div>
 </div>
 </body>

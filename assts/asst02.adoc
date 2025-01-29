@@ -72,7 +72,7 @@ All life is precious
 Requirements/Hints:
 
 * This is basically the Unix `cat` command with no flags. 
-* Use the file descriptors STDOUT_FILENO and STDIN_FILENO to specify stdout and stdin istreams respectively
+* When working with the standard input and standard output streams, either use the defined file descriptors (e.g. `STDOUT_FILENO`, `STDIN_FILENO`), or defined file pointers (e.g. `stdin`, `stdout`), with either `read` or `fread`.
 * Your program should use the system calls, link:https://www.man7.org/linux/man-pages/man2/read.2.html[read], link:https://www.man7.org/linux/man-pages/man2/write.2.html[write], and link:https://www.man7.org/linux/man-pages/man2/open.2.html[open]. 
 * Ctrl-d will quit your application when reading from stdin
 
