@@ -1,6 +1,6 @@
 include::header.adoc[]
 
-:title: Processes I
+:title: C no evil
 :Author Initials: ASN
 :Date:    2020-08-15
 :Revision: 0.1
@@ -12,7 +12,11 @@ include::header.adoc[]
 
 The goals for this assignment are:
 
+* Working with stdout and stderr
+* Working with environment variables 
 * Working with C strings
+
+To get started, clone the repository link:https://classroom.github.com/a/K4qA5FE_[here]
 
 :sectnums:
 
@@ -53,7 +57,19 @@ $ **cat odd.txt**
 = Environment
 
 Write a program, `myenv.c`, that loops through the process's environment variables and 
-prints the value for PATH. Use the code link:https://stackoverflow.com/questions/2085302/printing-all-environment-variables-in-c-c[here] as a starting point. 
+prints the value for PATH. Use the code below, based on pointer arithmetic, 
+as a starting point. 
+
+[source]
+----
+int main(int argc, char** argv, char** envp)
+{
+  while(*envp)
+  {
+    printf("%s\n",*envp++);  
+  }
+}
+----
 
 [source, subs="quotes"]
 ----
@@ -64,38 +80,24 @@ PATH=/home/alinen/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/
 ----
 
 NOTE: The shell command `env` prints the environment 
+
 NOTE: The paths above were truncated for brevity. Yours will be much longer!
 
 = Advanced C strings
 
 In assignment 02, you need to dynamically allocate a list of command line arguments. 
-For example, if the command line is `ls -l`, you need to create a null-terminated 
-list of strings, `[ls, -l, NULL]`. 
+For example, if the command line is `ls -l -a`, you need to create a null-terminated 
+list of strings, `[ls, -l, -a, NULL]`. 
 
 In the file, `argv.c`, implement a program that tokenizes a string into 
 a null-terminated array of strings created dynamically with malloc. 
 Then implement a function to print the array of strings using pointer arithmetic. 
-Below is starter code.
 
-[source]
+[source, subs="quotes"]
 ----
-#include <stdio.h>
-#include <string.h>
-
-// list is a null-terminated array of strings, e.g. ["ls", "-l", NULL]
-void print(char** list)
-{
-}
-
-int main()
-{
-    char line[1024];
-    strcpy(line, "ls -l -a");    
-
-    // your code here
-}
+$ **./argv**
+[ls, -l, -a, NULL]
 ----
-
 
 Requirements/Hints:
 
