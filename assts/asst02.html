@@ -153,11 +153,12 @@ This question is from <a href="https://www.cs.swarthmore.edu/~kwebb/cs45/s24/lab
 </table>
 </div>
 <div class="paragraph">
-<p>In the file, <code>parser.c</code>, implement a function that parses command line input. This function should use <code>readline</code> to get input from the user and then fill in a <code>struct cmd</code> that holds the information needed to execute. Your struct should look as follows.</p>
+<p>In the file, <code>parser.c</code>, implement a function that parses command line input.
+This function should fill in a <code>struct Cmd</code> that holds the information needed to execute. Your struct should look as follows.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>struct cmd {
+<pre class="highlight"><code>struct Cmd {
   char **cmd1_argv;
   char **cmd2_argv;
   char *cmd1_fds[3];
@@ -513,7 +514,7 @@ have good style.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2025-01-29 13:18:30 -0500
+Last updated 2025-01-30 14:29:42 -0500
 </div>
 </div>
 </body>
