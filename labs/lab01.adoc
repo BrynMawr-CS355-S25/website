@@ -8,7 +8,7 @@ include::header.adoc[]
 
 = {title}
 
-**Lab exercises for January 30th**
+**Lab exercises: Due January 30th 5PM (24 hr late period allowed)**
 
 The goals for this assignment are:
 
