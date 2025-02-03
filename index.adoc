@@ -18,7 +18,8 @@ Instructor: link:https://www.cs.brynmawr.edu/~alinen[Aline Normoyle]
 * Welcome!
 * link:labs/lab01.html[Lab Jan 30]
 * link:assts/asst02.html[Assignment 02] is due Sunday Feb 2: Trust the Process (Part 1)
-* Written Questions (Due Feb 4 in class, Be Brief!): link:questions-week03.txt[Written Questions]
+* link:assts/asst03.html[Assignment 03] is due Sunday Feb 9: Trust the Process (Part 2)
+* Written Questions (Due Feb 10 in class, Be Brief!): link:questions-week04.txt[Written Questions]
 
 == Course Info
 

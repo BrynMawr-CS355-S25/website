@@ -78,8 +78,6 @@ Requirements/Hints:
 
 = Parser
 
-_By Kevin Webb_
-
 NOTE: This question is from link:https://www.cs.swarthmore.edu/~kwebb/cs45/s24/labs/lab1.html[this lab].
 
 In the file, `parser.c`, implement a function that parses command line input. 
