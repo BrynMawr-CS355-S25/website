@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.18">
-<title>Processes II</title>
+<title>Processes III</title>
 <link rel="stylesheet" href="../style/cs21.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -14,16 +14,16 @@
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_processes_ii">Processes II</a></li>
-<li><a href="#_zombie">1. Zombie</a></li>
-<li><a href="#_orphan">2. Orphan</a></li>
-<li><a href="#_fork">3. Fork</a></li>
+<li><a href="#_processes_iii">Processes III</a></li>
+<li><a href="#_signal_handler">1. Signal Handler</a></li>
+<li><a href="#_alarm">2. Alarm</a></li>
+<li><a href="#_job_controller">3. Job Controller</a></li>
 </ul>
 </div>
 </div>
 <div id="content">
 <div class="sect1">
-<h2 id="_processes_ii">Processes II</h2>
+<h2 id="_processes_iii">Processes III</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><strong>Lab exercises for January 30th</strong></p>
@@ -34,37 +34,26 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Working with processes</p>
+<p>Working with signals</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_zombie">1. Zombie</h2>
+<h2 id="_signal_handler">1. Signal Handler</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>A zombie process is a process that is waiting for its parent to accept its
-status code, e.g. the child process exited before its parent. Zombie
-processes are "reaped" using the wait call. In the
-file, <code>zombie.c</code>, implement a program that creates a zombie process. Use the
-command <code>ps w</code> to verify that the child is a zombie and shows with status <code>Z</code>.</p>
-</div>
+
 </div>
 </div>
 <div class="sect1">
-<h2 id="_orphan">2. Orphan</h2>
+<h2 id="_alarm">2. Alarm</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>An orphan process is a process whose parent dies before the child. In the file,
-<code>orphan.c</code>, implement a program that creates an orphan process.
-Use the command <code>ps w</code> to verify that the child is adopted by the main shell
-process.</p>
-</div>
+
 </div>
 </div>
 <div class="sect1">
-<h2 id="_fork">3. Fork</h2>
+<h2 id="_job_controller">3. Job Controller</h2>
 <div class="sectionbody">
 
 </div>
@@ -72,7 +61,7 @@ process.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2025-02-05 10:18:12 -0500
+Last updated 2025-02-05 10:13:36 -0500
 </div>
 </div>
 </body>

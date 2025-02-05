@@ -12,52 +12,24 @@ include::header.adoc[]
 
 The goals for this assignment are:
 
-* Working with C strings
 * Working with processes
 
 :sectnums:
 
-#include <stdio.h>
-#include <string.h>
-#define delims " \t"
-
-void print(char** list)
-{
-    printf("[");
-    for (char** ptr = list; *ptr != NULL; ptr++)
-    {
-        printf("%s, ", *ptr);
-    }
-    printf("NULL]\n");
-}
-
-int main()
-{
-    char line[1024];
-    strcpy(line, "ls -l -a");    
-    
-    int n = 0;
-    char* list[128]; // max of 128 words can be put in the list
-    char* token = strtok(line, delims);
-    while (token)
-    {
-        list[n++] = token; 
-        token = strtok(NULL, delims);
-    }
-    list[n] = NULL;
-    print(list);
-}
-
 = Zombie
 
+A zombie process is a process that is waiting for its parent to accept its
+status code, e.g. the child process exited before its parent. Zombie 
+processes are "reaped" using the wait call. In the 
+file, `zombie.c`, implement a program that creates a zombie process. Use the 
+command `ps w` to verify that the child is a zombie and shows with status `Z`. 
 
 = Orphan
 
+An orphan process is a process whose parent dies before the child. In the file, 
+`orphan.c`, implement a program that creates an orphan process. 
+Use the command `ps w` to verify that the child is adopted by the main shell 
+process. 
 
-= Signal Handler
-
-
-= Alarm
-
-
+= Fork
 
