@@ -14,6 +14,9 @@ The goals for this assignment are:
 
 * Working with processes, pipes, file descriptors
 
+We will use the same repository as last week: link:https://classroom.github.com/a/K4qA5FE_[Labs Repo]. 
+Click on the link and then accept and merge the pull request.
+
 :sectnums:
 
 = Dupee Dup2
