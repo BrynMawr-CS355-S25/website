@@ -113,7 +113,7 @@ In the above example, `catsort` performs the following steps:
 ** Closes the ends of the pipe
 ** Calls execlp with arguments that correspond to the command
 * The parent process does the following:
-** Waits for both children to complete
 ** Closes the ends of its pipe
+** Waits for both children to complete
 
 NOTE: Don't forget to implement error handling by checking the return code and printing the error with perror is the status of the system call is < 0.
