@@ -8,20 +8,27 @@ include::header.adoc[]
 
 = {title}
 
-**Lab exercises for January 30th**
+**Lab exercises for February 13th**
 
-The goals for this assignment are:
+The goal for this assignment are:
 
 * Working with signals
 
+We will use the same repository as last week: link:https://classroom.github.com/a/K4qA5FE_[Labs Repo]. 
+Click on the link and then accept and merge the pull request.
+
 :sectnums:
 
-= Signal Handler
+= Child Monitor
+
+Write a program, `monitor.c`, that forks a process and then allows the user to change 
+the child's state using signals. 
 
 
-= Alarm
 
+= Foreground/Background
 
-= Job Controller
+Write a program, `fgbg.c`, that forks a child process and allows a user to move it between 
+the foreground and background of the terminal.
 
 
