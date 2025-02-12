@@ -12,9 +12,9 @@ include::header.adoc[]
 
 The goals for this assignment are:
 
-* Working with signals: SIGINT, SIGTERM, SIGTTIN, SIGTTOU, SIGTSTP, SIGQUIT, SIGCHLD 
+* Working with signals
 * Understanding process state: sleeping, running, stopped, terminated
-* Working with additional system calls: sigaction, tcgetpgrp, tcsetpgrp, setpgid
+* Working with additional system calls: sigprocmask, tcgetpgrp, tcsetpgrp, setpgid
 * C practice/review
 
 NOTE: We will use the same starter code as last week: link:https://classroom.github.com/a/z8JKZurc[here]
@@ -37,7 +37,9 @@ Additionally, your shell should support the following features, outlined in the 
 * jobs
 * kill [-9] %<job_num> 
 
-NOTE: Even if your previous shell is incomplete, you can still implement the features of this assignment. For example, if piping or redirection does not work, let us know in the README.md file so we test your shell only with single process jobs.
+NOTE: Even if your previous shell is incomplete, you can still implement the
+features of this assignment. Specifically, we will only be testing single
+commands (no pipes or redirection) to test the job control features in this assignment.
 
 == Backgrounding with &
 
@@ -49,12 +51,15 @@ NOTE: A job is a set of processes in the same group, started from the command li
 When a process is executing in the background, the shell should not block and
 wait but rather continue accepting commands. In our previous shell implementations, 
 we used `wait` to pause while our child executed. Now, we must detect when our 
-background processes complete. There are two possible approaches:
+background processes complete. Because we do not want our parent process to pause 
+while waiting for children to finish, we will use a _non-blocking_ call to `waitpid` that 
+will trigger whenever the child's status changes, 
+e.g. `waitpid(pid, &status, WNOHANG | WUNTRACED | WCONTINUED)`  
+As discussed in class, we can update the status of our background processes either with 
+polling in the foreground process, or within a signal handler.
 
-* Use the _non-blocking_ version of `wait` which uses the WNOHANG flag (polling approach - easier)
-* Register a signal handler on SIGCHLD (asynchronous approach - harder) 
-
-You will also need to keep track of all running jobs. Use a linked list to keep track of all jobs.
+You will also need to keep track of all running jobs. Use a linked list to keep
+track of all jobs.
 
 === Process groups
 

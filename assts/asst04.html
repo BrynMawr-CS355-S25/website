@@ -43,13 +43,13 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Working with signals: SIGINT, SIGTERM, SIGTTIN, SIGTTOU, SIGTSTP, SIGQUIT, SIGCHLD</p>
+<p>Working with signals</p>
 </li>
 <li>
 <p>Understanding process state: sleeping, running, stopped, terminated</p>
 </li>
 <li>
-<p>Working with additional system calls: sigaction, tcgetpgrp, tcsetpgrp, setpgid</p>
+<p>Working with additional system calls: sigprocmask, tcgetpgrp, tcsetpgrp, setpgid</p>
 </li>
 <li>
 <p>C practice/review</p>
@@ -112,7 +112,9 @@ Additionally, your shell should support the following features, outlined in the 
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Even if your previous shell is incomplete, you can still implement the features of this assignment. For example, if piping or redirection does not work, let us know in the README.md file so we test your shell only with single process jobs.
+Even if your previous shell is incomplete, you can still implement the
+features of this assignment. Specifically, we will only be testing single
+commands (no pipes or redirection) to test the job control features in this assignment.
 </td>
 </tr>
 </table>
@@ -139,20 +141,16 @@ A job is a set of processes in the same group, started from the command line, an
 <p>When a process is executing in the background, the shell should not block and
 wait but rather continue accepting commands. In our previous shell implementations,
 we used <code>wait</code> to pause while our child executed. Now, we must detect when our
-background processes complete. There are two possible approaches:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Use the <em>non-blocking</em> version of <code>wait</code> which uses the WNOHANG flag (polling approach - easier)</p>
-</li>
-<li>
-<p>Register a signal handler on SIGCHLD (asynchronous approach - harder)</p>
-</li>
-</ul>
+background processes complete. Because we do not want our parent process to pause
+while waiting for children to finish, we will use a <em>non-blocking</em> call to <code>waitpid</code> that
+will trigger whenever the child&#8217;s status changes,
+e.g. <code>waitpid(pid, &amp;status, WNOHANG | WUNTRACED | WCONTINUED)</code>
+As discussed in class, we can update the status of our background processes either with
+polling in the foreground process, or within a signal handler.</p>
 </div>
 <div class="paragraph">
-<p>You will also need to keep track of all running jobs. Use a linked list to keep track of all jobs.</p>
+<p>You will also need to keep track of all running jobs. Use a linked list to keep
+track of all jobs.</p>
 </div>
 <div class="sect3">
 <h4 id="_process_groups">1.1.1. Process groups</h4>
@@ -372,7 +370,7 @@ has some features working but with memory errors.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2025-02-10 13:22:06 -0500
+Last updated 2025-02-12 14:23:10 -0500
 </div>
 </div>
 </body>
