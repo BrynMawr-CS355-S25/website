@@ -123,11 +123,11 @@ Monitoring child process 6254.
 
 Inside a header comment, answer the following questions:
 
-0. What happens if the parent and child both belong to the same process group?
-1. What happens when SIGCONT is sent to a process that is already running?
-2. What happens when SIGSTP is sent to a process already stopped?
-3. What happens when you send the signal SIGTTOU?
-4. What happens when you send he signal SIGALRM?
+. What happens if the parent and child both belong to the same process group?
+. What happens when SIGCONT is sent to a process that is already running?
+. What happens when SIGSTP is sent to a process already stopped?
+. What happens when you send the signal SIGTTOU?
+. What happens when you send he signal SIGALRM?
 
 = Foreground/Background
 
