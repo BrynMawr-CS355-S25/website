@@ -100,9 +100,9 @@ Requirements/Hints:
 
 * Make sure the child has a different process ID from the parent. 
 * Create a child that loops forever so it is convenient to change its process status.
-* Use the command: `kill -STOP <pid>` to stop the process. 
-* Use the command: `kill -CONT <pid>` to continue the process. 
-* Use the command: `kill -TERM <pid>` to terminate the process. 
+* From another terminal, use the command: `kill -STOP <pid>` to stop the process. 
+* From another terminal, use the command: `kill -CONT <pid>` to continue the process. 
+* From another terminal, use the command: `kill -TERM <pid>` to terminate the process. 
 * Try sending other signals, such as `kill -ALRM <pid>`, and see what happens to the process. Some signals, such as SIGTTOU will cause the process to stop; others will cause the process to quit.
 * Typing `quit` should quit the parent process and kill the child
 * Inside your signal handler, use a non-blocking `waitpid` call, configured to also return if the child process stops or continues (see the man page for details). 
@@ -161,3 +161,4 @@ Requirements/Hints:
 * Whenever the child is stopped, make sure to return the terminal to the parent.
 * Configure the parent to ignore SIGTTOU and SIGTTIN signals so it can modify ownership of the terminal, even when it is running in the background.
 * Use `top H` to monitor the terminal and process status of both the parent and child
+

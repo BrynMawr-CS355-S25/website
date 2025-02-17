@@ -1,0 +1,18 @@
+include::header.adoc[]
+
+:title: Threads I
+:Author Initials: ASN
+:Date:    2020-08-15
+:Revision: 0.1
+:ASST: labs-USERNAME
+
+= {title}
+
+Lab exercises for February 20th.
+
+The goals for this assignment are:
+
+* Understanding the pthread library
+* Working with ucontext 
+
+:sectnums:

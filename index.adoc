@@ -18,7 +18,7 @@ Instructor: link:https://www.cs.brynmawr.edu/~alinen[Aline Normoyle]
 * Welcome!
 * link:labs/lab03.html[Lab Feb 13]: Code due Thursday Feb 13 5pm
 * link:assts/asst04.html[Assignment 04] is due Sunday Feb 16: Trust the Process (Part 3)
-* Written Questions (Due Feb 11 in class, Be Brief!): link:questions-week04.txt[Written Questions]
+* **No Written Questions for Week 05 (Feb 18)** 
 
 == Course Info
 
@@ -133,8 +133,8 @@ as a weighted average of all grades according to the following weights:
 
 |===
 |30% | Exams
-|55% | Assignments, projects, oral exam
-|10% | Written homeworks and discussions
+|60% | Assignments, labs, projects, oral exam
+| 5% | Written homeworks and discussions
 | 5% | Participation
 |===
 

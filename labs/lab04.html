@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.18">
-<title>Processes III</title>
+<title>Threads I</title>
 <link rel="stylesheet" href="../style/cs21.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -14,19 +14,24 @@
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_processes_iii">Processes III</a></li>
-<li><a href="#_signal_handler">1. Signal Handler</a></li>
-<li><a href="#_alarm">2. Alarm</a></li>
-<li><a href="#_job_controller">3. Job Controller</a></li>
+<li><a href="#_threads_i">Threads I</a></li>
+<li><a href="#_matrix_add_due_feb_20">1. Matrix Add  <strong>Due Feb 20</strong></a></li>
+<li><a href="#_funny_functions_due_feb_23">2. Funny functions <strong>Due Feb 23</strong></a>
+<ul class="sectlevel2">
+<li><a href="#_alternate">2.1. Alternate</a></li>
+<li><a href="#_alarm">2.2. Alarm</a></li>
+<li><a href="#_tid">2.3. TID</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
 <div id="content">
 <div class="sect1">
-<h2 id="_processes_iii">Processes III</h2>
+<h2 id="_threads_i">Threads I</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><strong>Lab exercises for January 30th</strong></p>
+<p>Lab exercises for February 20th.</p>
 </div>
 <div class="paragraph">
 <p>The goals for this assignment are:</p>
@@ -34,34 +39,86 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Working with signals</p>
+<p>Understanding the pthread library</p>
+</li>
+<li>
+<p>Working with ucontext</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_signal_handler">1. Signal Handler</h2>
+<h2 id="_matrix_add_due_feb_20">1. Matrix Add  <strong>Due Feb 20</strong></h2>
 <div class="sectionbody">
-
+<div class="paragraph">
+<p>In the files, <code>matrix.c</code>, implement a program that uses M threads to add
+two matrices, placing the result in the second.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Requirements/Hints:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Time how long it takes to compute the result when you have 8 versus 1 thread.</p>
+</li>
+<li>
+<p>Leverage spatial locality to ensure the best performance, e.g. split the work by rows in each matrix.</p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_alarm">2. Alarm</h2>
+<h2 id="_funny_functions_due_feb_23">2. Funny functions <strong>Due Feb 23</strong></h2>
 <div class="sectionbody">
-
+<div class="paragraph">
+<p>Implement the following programs based on ucontext.</p>
+</div>
+<div class="sect2">
+<h3 id="_alternate">2.1. Alternate</h3>
+<div class="paragraph">
+<p>In the file, <code>alternate.c</code>, write a program that alternates between two functions indefinitely.</p>
+</div>
+<div class="paragraph">
+<p>From another terminal, use the <code>kill</code> command to send a signal to the
+<code>alternate</code> process. In your C file, describe what happens when a signal is
+delivered? How do signals affect the execution of a context?</p>
 </div>
 </div>
-<div class="sect1">
-<h2 id="_job_controller">3. Job Controller</h2>
-<div class="sectionbody">
-
+<div class="sect2">
+<h3 id="_alarm">2.2. Alarm</h3>
+<div class="paragraph">
+<p>Can you write a program that alternates between two functions at a set interval?</p>
+</div>
+<div class="paragraph">
+<p>In the file, <code>alarm.c</code>, write a program that alternates between two functions at a set interval.
+Use a kernel timer like in the <a href="sig_alarm.c">sig_alarm</a> demo from class.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_tid">2.3. TID</h3>
+<div class="paragraph">
+<p>How do you track the current context? If a function is running in multiple contexts at once,
+how do you know which one is which?</p>
+</div>
+<div class="paragraph">
+<p>In the file, <code>tid.c</code>, write a program where multiple contexts run the same function. Add code so that
+each context can keep track of itself.</p>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2025-02-10 13:22:17 -0500
+Last updated 2025-02-16 20:33:14 -0500
 </div>
 </div>
 </body>

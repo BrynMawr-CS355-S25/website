@@ -50,26 +50,26 @@
 //-----------------------------
 |5
 |February 18, 20 anchor:week05[]
-|*Thread IPC and Scheduling, Classical IPC problems* 
+|*Threads* 
 
 * Read: Tannenbaum 2.3, 2.4, 2.5
-* Lab Feb 20 
-* Written Questions (Due Feb 18 in class, Be Brief): Tannenbaum 
+* link:labs/lab04.html[Lab Feb 20]
+* No Written Questions Due
 
 //-----------------------------
 |6
 |February 25, 27 anchor:week06[]
-|*Memory Management* 
+|*IPC, synchronization, deadlock* 
 
-* Read: Tannenbaum Chapter 3 
+* Read: Tannenbaum 2.5, Chapter 6
 * link:assts/asst05.html[Assignment 05]: Due March 2
-* Lab Feb 27 
+* Lab Feb 27: Userthread library demos
 * Written Questions (Due Feb 25 in class, Be Brief): Tannenbaum 
 
 //-----------------------------
 |7
 |March 4,6 anchor:week07[]
-|*Virtual memory and paging* 
+|*Memory Management* 
 
 * Read: Tannenbaum Chapter 3
 * Lab March 6
@@ -85,7 +85,7 @@
 //-----------------------------
 |9
 |March 18, 20 anchor:week09[]
-|*Paging and segmentation* 
+|*Virtual memory, paging, and segmentation* 
 
 * Read: Tannenbaum Chapter 4
 * link:assts/asst05.html[Assignment 06]: 
