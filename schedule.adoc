@@ -50,9 +50,9 @@
 //-----------------------------
 |5
 |February 18, 20 anchor:week05[]
-|*Threads* 
+|*Threads, Scheduling* 
 
-* Read: Tannenbaum 2.3, 2.4, 2.5
+* Read: Tannenbaum 2.4
 * link:labs/lab04.html[Lab Feb 20]
 * No Written Questions Due
 
@@ -61,7 +61,7 @@
 |February 25, 27 anchor:week06[]
 |*IPC, synchronization, deadlock* 
 
-* Read: Tannenbaum 2.5, Chapter 6
+* Read: Tannenbaum 2.3, 2.5, Chapter 6
 * link:assts/asst05.html[Assignment 05]: Due March 2
 * Lab Feb 27: Userthread library demos
 * Written Questions (Due Feb 25 in class, Be Brief): Tannenbaum 
@@ -72,8 +72,8 @@
 |*Memory Management* 
 
 * Read: Tannenbaum Chapter 3
-* Lab March 6
-* **Exam 01**
+* **Exam 01** In Class, March 6
+* **No Lab March 6**
 
 //-----------------------------
 |8
