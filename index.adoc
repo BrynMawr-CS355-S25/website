@@ -16,8 +16,8 @@ Instructor: link:https://www.cs.brynmawr.edu/~alinen[Aline Normoyle]
 [.anns]
 
 * Welcome!
-* link:labs/lab03.html[Lab Feb 13]: Code due Thursday Feb 13 5pm
-* link:assts/asst04.html[Assignment 04] is due Sunday Feb 16: Trust the Process (Part 3)
+* link:labs/lab04.html[Lab Feb 20]: Code due Thursday Feb 20 5pm and Sunday Feb 23
+* link:assts/asst05.html[Assignment 05: Userthreads] has due dates Thursday, Feb 27th and Sunday March 2. 
 * **No Written Questions for Week 05 (Feb 18)** 
 
 == Course Info
