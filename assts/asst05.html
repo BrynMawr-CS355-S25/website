@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.18">
-<title>Assignment 05: Userthreads (Part 1)</title>
+<title>Assignment 05: Userthreads</title>
 <link rel="stylesheet" href="../style/cs21.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -14,7 +14,7 @@
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_assignment_05_userthreads_part_1">Assignment 05: Userthreads (Part 1)</a></li>
+<li><a href="#_assignment_05_userthreads">Assignment 05: Userthreads</a></li>
 <li><a href="#_interface">1. Interface</a></li>
 <li><a href="#_scheduling_policies">2. Scheduling Policies</a>
 <ul class="sectlevel2">
@@ -22,23 +22,23 @@
 <li><a href="#_shortest_job_first_sjf">2.2. Shortest-job first (SJF)</a></li>
 <li><a href="#_priority_based_priority">2.3. Priority-based (PRIORITY)</a></li>
 <li><a href="#_threads_context_switching">2.4. Threads Context Switching</a></li>
-<li><a href="#_advice">2.5. Advice</a></li>
 </ul>
 </li>
 <li><a href="#_additional_features">3. Additional Features</a>
 <ul class="sectlevel2">
 <li><a href="#_logging">3.1. Logging</a></li>
+<li><a href="#_valgrind_compatibility">3.2. Valgrind Compatibility</a></li>
+<li><a href="#_test_suite">3.3. Test Suite</a></li>
+<li><a href="#_advice">3.4. Advice</a></li>
 </ul>
 </li>
-<li><a href="#_valgrind_compatibility">4. Valgrind Compatibility</a></li>
-<li><a href="#_test_suite">5. Test Suite</a></li>
-<li><a href="#_extra_credit">6. Extra Credit</a></li>
+<li><a href="#_extra_credit">4. Extra Credit</a></li>
 </ul>
 </div>
 </div>
 <div id="content">
 <div class="sect1">
-<h2 id="_assignment_05_userthreads_part_1">Assignment 05: Userthreads (Part 1)</h2>
+<h2 id="_assignment_05_userthreads">Assignment 05: Userthreads</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><strong>Milestone 1: Due Thursday, February 27, in lab (no extensions)</strong>
@@ -258,75 +258,6 @@ to help implement user-level thread context switching.
 Please refer to <a href="../labs/lab04.html">Lab 04</a> for details.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_advice">2.5. Advice</h3>
-<div class="ulist">
-<ul>
-<li>
-<p>Deleting a thread and exiting the program: A thread finishes when it returns from the function that was specified in thread_create. Remember to de-allocate the memory used
-for the thread’s stack space and context (be careful to do this after the thread is really done
-using it).</p>
-</li>
-<li>
-<p>When you create a thread, you may find it useful to invoke a "wrapper" function (also called
-a stub function) that calls the thread’s function and, thus provides a place for the thread to
-return to upon termination, where the necessary cleanup can be performed.</p>
-</li>
-<li>
-<p>Be careful when managing your ready queue which is shared across all threads. Make sure that only one thread modifies the queue at once. And be careful about signals that might interrupt updates to the shared queue of threads.</p>
-</li>
-<li>
-<p>Remember that the main thread (the one that’s making calls to your library) is also a schedulable context and should not be treated differently.</p>
-</li>
-<li>
-<p>For non-preemptive scheduling policies, when your main thread calls thread_join, you
-should call your function that performs scheduling. This is how the first thread gets to
-execute.</p>
-</li>
-<li>
-<p>A minimum thread control block is required to do the house keeping of context switching.
-Your TCB should minimumly include the tid, ucontext and (CPU usage or priority, depending
-on scheduling algorithm), but you will probably add more.</p>
-</li>
-<li>
-<p>To implement priority scheduling, you should create 3 linked-lists, one for each priority. Then
-schedule in a Round Robin fashion among all of them.</p>
-</li>
-<li>
-<p>Note that when a process terminates, often times it may not use up all of 100ms. It is
-your scheduler’s responsibility to handle this situation well and ensure the process next to be
-scheduled will be given a full 100ms quanta.</p>
-</li>
-<li>
-<p>Declare all internal variables and functions (those that are not called by clients of the library)
-static to prevent naming conflicts with programs that link with your thread library.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Assumptions</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>You may assume that we only do one join per thread id.</p>
-</li>
-<li>
-<p>You may assume that we will not call thread_yield from the main thread.</p>
-</li>
-<li>
-<p>Your library functions shouldn’t print any error messages. Errors are indicated by return values, as is typical with libraries.</p>
-</li>
-<li>
-<p>A "run" is defined as the time between a thread being scheduled and the thread being
-descheduled (via a call to thread_join, thread_yield, or the thread’s function
-finishing). So, any time a thread is scheduled, you should start timing; when a thread
-is descheduled, stop; the elapsed time defines the previous "run."
- *You may assume that we will only invoke thread_libinit with a valid scheduling policy.</p>
-</li>
-</ul>
-</div>
-</div>
 </div>
 </div>
 <div class="sect1">
@@ -382,11 +313,8 @@ system call write and STDOUT_FILENO instead. fprintf is thread-safe and thus if 
 logging to a file (which is what you should be doing), you are safe.</p>
 </div>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_valgrind_compatibility">4. Valgrind Compatibility</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_valgrind_compatibility">3.2. Valgrind Compatibility</h3>
 <div class="paragraph">
 <p>Unfortunately Valgrind by default does not work very well with ucontext. To make it work,
 you will need to include valgrind.h header file (Path:/usr/include/valgrind) and use
@@ -398,10 +326,8 @@ integer id to label each stack and to keep track which stack space is associated
 Error Handling and Testing</p>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_test_suite">5. Test Suite</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_test_suite">3.3. Test Suite</h3>
 <div class="paragraph">
 <p>An integral (and graded) part of writing your thread library will be to write a suite of test cases
 to validate your thread library.</p>
@@ -479,9 +405,79 @@ We will be testing your library against our own test suite. The quality (coverag
 </table>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_advice">3.4. Advice</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Deleting a thread and exiting the program: A thread finishes when it returns from the function that was specified in thread_create. Remember to de-allocate the memory used
+for the thread’s stack space and context (be careful to do this after the thread is really done
+using it).</p>
+</li>
+<li>
+<p>When you create a thread, you may find it useful to invoke a "wrapper" function (also called
+a stub function) that calls the thread’s function and, thus provides a place for the thread to
+return to upon termination, where the necessary cleanup can be performed.</p>
+</li>
+<li>
+<p>Be careful when managing your ready queue which is shared across all threads. Make sure that only one thread modifies the queue at once. And be careful about signals that might interrupt updates to the shared queue of threads.</p>
+</li>
+<li>
+<p>Remember that the main thread (the one that’s making calls to your library) is also a schedulable context and should not be treated differently.</p>
+</li>
+<li>
+<p>For non-preemptive scheduling policies, when your main thread calls thread_join, you
+should call your function that performs scheduling. This is how the first thread gets to
+execute.</p>
+</li>
+<li>
+<p>A minimum thread control block is required to do the house keeping of context switching.
+Your TCB should minimumly include the tid, ucontext and (CPU usage or priority, depending
+on scheduling algorithm), but you will probably add more.</p>
+</li>
+<li>
+<p>To implement priority scheduling, you should create 3 linked-lists, one for each priority. Then
+schedule in a Round Robin fashion among all of them.</p>
+</li>
+<li>
+<p>Note that when a process terminates, often times it may not use up all of 100ms. It is
+your scheduler’s responsibility to handle this situation well and ensure the process next to be
+scheduled will be given a full 100ms quanta.</p>
+</li>
+<li>
+<p>Declare all internal variables and functions (those that are not called by clients of the library)
+static to prevent naming conflicts with programs that link with your thread library.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Assumptions</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>You may assume that we only do one join per thread id.</p>
+</li>
+<li>
+<p>You may assume that we will not call thread_yield from the main thread.</p>
+</li>
+<li>
+<p>Your library functions shouldn’t print any error messages. Errors are indicated by return values, as is typical with libraries.</p>
+</li>
+<li>
+<p>A "run" is defined as the time between a thread being scheduled and the thread being
+descheduled (via a call to thread_join, thread_yield, or the thread’s function
+finishing). So, any time a thread is scheduled, you should start timing; when a thread
+is descheduled, stop; the elapsed time defines the previous "run."
+ *You may assume that we will only invoke thread_libinit with a valid scheduling policy.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
 </div>
 <div class="sect1">
-<h2 id="_extra_credit">6. Extra Credit</h2>
+<h2 id="_extra_credit">4. Extra Credit</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Note that it is your responsibility to provide sufficient logger output and/or generate additional
@@ -524,7 +520,7 @@ can not tell that it works.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2025-02-16 21:43:51 -0500
+Last updated 2025-02-16 21:53:13 -0500
 </div>
 </div>
 </body>
