@@ -276,3 +276,40 @@ the corresponding functionality. You should create targeted test cases and gener
 logger output that shows the extra credit components working. You will not receive credit if we
 can not tell that it works.
 
+= Grading Rubric
+
+*Assignment rubrics*
+
+Grades are out of 4 points.
+
+* (4 points) Userthread
+** (1.0 points) Thread API/Logging/Valgrind
+** (0.6 points) FIFO 
+** (0.7 points) SJF 
+** (0.8 points) Priority 
+** (0.6 points) Test Suite
+** (0.3 points) style and header comment
+
+*Code rubrics*
+
+For full credit, your C programs must be feature-complete, robust (e.g. run without memory errors or crashing) and 
+have good style.
+
+* Some credit lost for missing features or bugs, depending on severity of error
+* -12.5% for style errors. See the link:../codingstandard.html[class coding style] here.
+* -50% for memory errors
+* -100% for failure to check in work to Github
+* -100% for failure to compile on linux using make
+
+= Resubmission
+
+Your shell program (A03-A04) is eligible for resubmission at the end of the term.
+Students can submit up to two times:
+
+* The first time for up to 3.7 credit
+* The second time for up to 3.0 credit
+
+Resubmissions cannot be made for missed work. I reserve the right to judge whether an 
+earnest effort has been made on the initial submission, but as a guideline, students 
+must have received at least a C (2.0), for example, corresponding to a submission that 
+has some features working but with memory errors. 
