@@ -217,7 +217,7 @@ exercises a thread library.
 
 NOTE: We will be testing your library against our own test suite. The quality (coverage) of your tests will be compared to ours. 
 
-== Advice
+= Advice
 
 * Deleting a thread and exiting the program: A thread finishes when it returns from the function that was specified in thread_create. Remember to de-allocate the memory used
 for the thread’s stack space and context (be careful to do this after the thread is really done
