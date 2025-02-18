@@ -17,7 +17,7 @@ The goals for this assignment are:
 * Understand scheduling algorithms
 * Working with additional system calls: getcontext, makecontext, swapcontext
 
-NOTE: We will use new starter code: link:todo
+NOTE: We will use new starter code: link:https://classroom.github.com/a/K88AA1Zs
 
 _Assignment by Dianna Xu_
 
