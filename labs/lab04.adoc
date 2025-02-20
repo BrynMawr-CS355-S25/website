@@ -15,6 +15,9 @@ The goals for this assignment are:
 * Understanding the pthread library
 * Working with ucontext 
 
+We will use the same repository as last week: link:https://classroom.github.com/a/K4qA5FE_[Labs Repo]. 
+Click on the link and then accept and merge the pull request.
+
 :sectnums:
 
 = Matrix Add  **Due Feb 20**
