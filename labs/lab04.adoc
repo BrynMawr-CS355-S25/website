@@ -92,8 +92,8 @@ To test with large matrices, download them from the website (but don't check the
 
 [source]
 ----
-wget ${csweb}/A4 
-wget ${csweb}/B4 
+wget ${asnweb}/A4 
+wget ${asnweb}/B4 
 ----
 
 = Funny functions **Due Feb 23**
