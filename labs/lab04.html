@@ -250,13 +250,45 @@ odd:5
 <p>In the file, <code>alarm.c</code>, write a program that alternates between two functions at a set interval.
 Use a kernel timer like in the <a href="sig_alarm.c">sig_alarm</a> demo from class.</p>
 </div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>$ **./alarm**
+even:0
+even:2
+odd:1
+odd:3
+even:4
+even:6
+odd:5
+odd:7</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Hints:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Above, we defined two functions in addition to main, <code>nextEven()</code> and <code>nextOdd()</code>.</p>
+</li>
+<li>
+<p>The signal handler switches between <code>nextEven</code> and <code>nextOdd</code> using a global variable that specifies which should run</p>
+</li>
+<li>
+<p>After setting up the contexts and signals, main calls <code>pause</code> in an infinite loop.</p>
+</li>
+<li>
+<p>The timer triggers every 2 seconds and each functions sleep 1 second between printing. Thus, we see two prints before switching to the next function.</p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2025-02-19 23:40:47 -0500
+Last updated 2025-02-19 23:54:53 -0500
 </div>
 </div>
 </body>

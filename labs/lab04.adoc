@@ -161,3 +161,23 @@ Can you write a program that alternates between two functions at a set interval?
 
 In the file, `alarm.c`, write a program that alternates between two functions at a set interval. 
 Use a kernel timer like in the link:sig_alarm.c[sig_alarm] demo from class.
+
+[source]
+----
+$ **./alarm**
+even:0
+even:2
+odd:1
+odd:3
+even:4
+even:6
+odd:5
+odd:7
+----
+
+Hints:
+
+* Above, we defined two functions in addition to main, `nextEven()` and `nextOdd()`.
+* The signal handler switches between `nextEven` and `nextOdd` using a global variable that specifies which should run
+* After setting up the contexts and signals, main calls `pause` in an infinite loop.
+* The timer triggers every 2 seconds and each functions sleep 1 second between printing. Thus, we see two prints before switching to the next function.
