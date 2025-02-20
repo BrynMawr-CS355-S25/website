@@ -92,8 +92,8 @@ To test with large matrices, download them from the website (but don't check the
 
 [source]
 ----
-wget ${asnweb}/A4 
-wget ${asnweb}/B4 
+$ wget https://alinen.net/A4 
+$ wget https://alinen.net/B4 
 ----
 
 = Funny functions **Due Feb 23**
