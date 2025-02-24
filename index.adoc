@@ -16,9 +16,11 @@ Instructor: link:https://www.cs.brynmawr.edu/~alinen[Aline Normoyle]
 [.anns]
 
 * Welcome!
-* link:labs/lab04.html[Lab Feb 20]: Code due Thursday Feb 20 5pm and Sunday Feb 23
-* link:assts/asst05.html[Assignment 05: Userthreads] has due dates Thursday, Feb 27th and Sunday March 2. 
 * **No Written Questions for Week 06 (Feb 25)** 
+* **Lab Feb 27**: Assignment 05 Checkin/Demos (No extensions possible past Feb 27)
+* link:assts/asst05.html[Assignment 05: Userthreads] has due dates Thursday, Feb 27th and Sunday March 2. 
+* link:questions-week07.txt[Written Questions Due March 4th]
+* **Midterm I**: 1.5 hours in class March 6. Closed Book. One cheatsheet.
 
 == Course Info
 
