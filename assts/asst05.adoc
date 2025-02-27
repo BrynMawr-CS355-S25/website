@@ -8,7 +8,7 @@ include::header.adoc[]
 
 = {title}
 
-**Milestone 1: Due Thursday, February 27, in lab (no extensions)**
+**Milestone 1: Due Thursday, February 27, in lab (you may take a 1 day extension)**
 **Due Sunday, March 2, before midnight**
 
 The goals for this assignment are:
@@ -40,7 +40,7 @@ For Milestone #1 (Feb 27), you must have the following features complete:
 * Valgrind
 * Unit tests that call each userthread API function
 
-The final deliverable (March 2) must add:
+The final deliverable (March 2) must contain:
 
 * Features from milestone #1
 * SJF scheduling
@@ -75,7 +75,7 @@ thread is put on the ready queue but is not executed right away.
 ** return value: Upon success, thread_yield should return 0. You may assume that the call always succeeds, which is on par with the current Linux pthread_yield implementation.
 
 * `int thread_join(int tid)` thread_join suspends execution of the calling thread until the target thread terminates.
-** return value: Upon success, thread_join should return 0 (this includes, of course, the case where the thread is already finished). If given a bad ID or if any other failure ocurres, thread_join should return -1.  Scheduling
+** return value: Upon success, thread_join should return 0 (this includes, of course, the case where the thread is already finished). If given a bad ID or if any other failure ocurres, thread_join should return -1.  
 
 = Scheduling Policies
 
@@ -156,6 +156,8 @@ printf is not re-entrant and thus there is a risk using it with signal handlers.
 deal when you are just printing a message for debugging, but for the logger, you should use the
 system call write and STDOUT_FILENO instead. fprintf is thread-safe and thus if you are
 logging to a file (which is what you should be doing), you are safe.
+
+Use the `clock()` function to compute the number of ticks from the start of the program.
 
 == Valgrind Compatibility
 
