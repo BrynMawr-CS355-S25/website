@@ -1,0 +1,303 @@
+include::header.adoc[]
+
+:title: Study Guide: OS Exam I
+:Author Initials: ASN
+:Date:    2020-08-15
+:Revision: 0.1
+
+= {title}
+
+Exams are closed book. You can bring one written cheat sheet. 90 minutes in class.
+
+Topics:
+
+* Tannenbaum Chapter 1-2, 6
+* Command line and terminal
+* Files: stdin, stdout, stderr, text and binary files
+* System calls: files, processes, signals, context switching
+* Basic POSIX threads: pthread, wait, barrier, mutex, conditionals
+
+= Practice questions: Short Answer
+
+* What is the operating system?
+* What are two main purposes of the operating system?
+* What are the different states that a process might be in?
+* Why might a processed be in a blocked state?
+* What is a process? 
+* What is the difference between an interrupt and a trap?
+* Why do we need interrupts and traps?
+* Why do we need special mechanisms, such as pipes or sockets, to communicate between processes?
+* How can you kill a process using `ps` ?
+* What is a zombie process?
+* What is an orphan process?
+* What is a signal handler?
+* Some signals cannot be ignored. Name a signal that cannot be ignored and explain why a program cannot ignore it. 
+* Why might we want to register a signal handler?
+* When does the OS send the SIGSEGV signal?
+* When does the OS send the SIGINT signal?
+* When does the OS send the SIGCHD signal?
+* What happens when a process calls fork?
+* What is a thread? How does a thread differ from a process? How are threads similar?
+* Why and when might we want to use multiple threads to implement a program?
+* Explain how threads might improve the implementation of a word processor. 
+* Explain how threads might improve the implementation of a web server. 
+* Explain how threads might improve the implementation of a web server. 
+* Why and when might we want to use multiple processes to implement a program? 
+* What is a function pointer?
+* What is a void* pointer?
+
+= Bash, command line, and terminal
+
+
+
+= Processes
+
+1) The following program creates a zombie process. Why?
+
+[source]
+----
+void main() {
+  if (fork() == 0) { /*child */
+    printf("Child, PID = %d\n", getpid());
+    exit(0);
+  } else { /*parent */
+    printf("Parent, PID = %d\n", getpid());
+    while(1) {
+    }
+  }
+}
+----
+
+2) Draw the process timeline created by executing the following program. For each created process, list its output (e.g. what does each process print)?
+
+[source]
+----
+int main() {
+  pid_t ret;
+
+  printf("A\n");
+
+  ret = fork();
+  if(ret == 0) {
+    printf("B\n");
+
+    ret = fork();
+    if(ret == 0) {
+      printf("C\n");
+    }
+    printf("D\n");
+  } else {
+    printf("E\n");
+
+    ret = fork();
+    printf("F\n");
+  }
+
+  printf("G\n");
+  return 0;
+}
+----
+
+3) Draw the process timeline created by executing the following program. For each created process, list its output (e.g. what does each process print)? How many processes are created?
+
+[source]
+----
+int main() {
+  pid_t ret;
+
+  printf("A\n");
+
+  for (int i = 0; i < 3; i++)
+  {
+     ret = fork();
+     if (ret == 0) // child
+     {
+        printf("B%d\n", i); 
+     }
+  }
+
+  printf("Z\n");
+  return 0;
+}
+----
+
+4) What type of event does SIGINT represent? Sketch a program that registers a signal handler for SIGINT?
+
+5) Draw the process timeline created by executing the following program. For each created process, list its output (e.g. what does each process print)? How many processes are created?
+
+[source]
+----
+int main() {
+  pid_t ret;
+
+  printf("A\n");
+
+  for (int i = 0; i < 3; i++)
+  {
+     ret = fork();
+     if (ret == 0) // child
+     {
+        printf("B%d\n", i); 
+        exit(0);
+     }
+  }
+
+  printf("Z\n");
+  return 0;
+}
+----
+
+6) Draw the process timeline created by executing the following program. For each created process, list its output (e.g. what does each process print)? How many processes are created?
+
+[source]
+----
+int main() {
+  pid_t ret;
+
+  int value = 10;
+  printf("A%d\n", value);
+
+  ret = fork();
+  if (ret == 0) // child
+  {
+     value--;
+  }
+  else
+  {
+     value++;
+  }
+
+  printf("Z%d\n", value);
+  return 0;
+}
+----
+
+7) Implement a program whose behavior matches the given timeline.
+
+image::processes.png[width=200px]
+
+= Threads
+
+1) Sketch a multi-threaded program (N threads) that computes the average of a list of numbers. You can assume that the size of the list can be evenly divided by N. 
+
+2) Draw the stack diagram for the following program with two threads.
+
+[source]
+----
+struct foo {
+   long id;
+   char message[16];
+};
+
+void *HelloWorld(void *id) {
+  struct foo *holder = (struct foo *) id;
+  printf("%s world! I am thread %ld\n", holder->message, holder->id);
+  return NULL;
+}
+
+int main(int argc, char **argv) {
+  struct foo holder1, holder2;
+  holder1.id = 1;
+  strcpy(holder1.message, "caio");
+  
+  holder2.id = 2;
+  strcpy(holder2.message, "aloha");
+
+  long* retval1 = NULL, *retval2 = NULL;
+  pthread_t thread1, thread2;
+  pthread_create(&thread1, NULL, HelloWorld, &holder1);
+  pthread_create(&thread2, NULL, HelloWorld, &holder2);
+  pthread_join(thread1, NULL);
+  pthread_join(thread2, NULL);
+  return 0;
+}
+----
+
+= Scheduling
+
+= Deadlocks
+
+= Programming
+
+1) What is the output of the following program? 
+
+[source]
+----
+#include <stdio.h>
+
+typedef void (*functionType)(int a, int b);
+
+void example(int a, int b) {
+  printf("This is a function stored as data! %d %d\n", a, b);
+}
+
+int main() {
+  functionType myFunction = example;
+  (*myFunction)(10, 3);
+}
+----
+
+2) Draw the stack diagram for the following program. Then indicate which of the following dereferences are safe.
+
+[source]
+----
+#include <stdio.h>
+
+int main()
+{
+  void* generic = NULL;
+  int a = 3;
+  double b = 4.5;
+  generic = &a;
+  generic = &b;
+
+  printf("test %f\n", *generic); 
+
+  double* double_ptr = (double *) generic;
+  printf("test %f\n", *double_ptr); 
+
+  int* int_ptr = (int *) generic;
+  printf("test %d\n", *int_ptr); 
+
+  generic = &a;
+
+  double* double_ptr = (double *) generic;
+  printf("test %f\n", *double_ptr); 
+
+  int* int_ptr = (int *) generic;
+  printf("test %d\n", *int_ptr); 
+
+  return 0;
+}
+----
+
+3) Draw the stack diagram for the following program. What is the output?
+
+[source]
+----
+#include <stdio.h>
+#include <string.h>
+
+char* foo(char* str, char c)
+{
+  int n = strlen(str);
+  for(int i = 0; i < n; i++)
+  {
+    if (str[i] == c)
+    {
+      str[i] = '\0';
+      return str;
+    }
+  }
+  return NULL;
+}
+
+int main()
+{
+  char buffer[8];
+  strcpy(buffer, "a,b,c");
+
+  char* s = foo(buffer, ',');
+  printf("%s\n", s);
+}
+----
