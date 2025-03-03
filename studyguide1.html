@@ -724,6 +724,27 @@ $ ./a.out</code></pre>
 <p>How do threads created in user space differ from threads created in kernel space?</p>
 </li>
 <li>
+<p>What is a critical section?</p>
+</li>
+<li>
+<p>What is a race condition?</p>
+</li>
+<li>
+<p>What is mutual exclusion?</p>
+</li>
+<li>
+<p>What is deadlock? livelock?</p>
+</li>
+<li>
+<p>What is bounded liveness?</p>
+</li>
+<li>
+<p>What four criteria must be met to ensure mutual exclusion?</p>
+</li>
+<li>
+<p>Why is disabling interrupts not ideal for enforcing mutual exclusion?</p>
+</li>
+<li>
 <p>Sketch a multi-threaded program (N threads) that computes the average of a list of numbers. You can assume that the size of the list can be evenly divided by N.</p>
 </li>
 <li>
@@ -756,6 +777,165 @@ int main(int argc, char **argv) {
   pthread_join(thread1, NULL);
   pthread_join(thread2, NULL);
   return 0;
+}</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Explain why the following program does not compute the correct answer for count.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>#define MAX 100000
+int count=0;
+
+void interleave() {
+  pthread_t th0, th1;
+  pthread_create(&amp;th0,0,test,0);
+  pthread_create(&amp;th1,0,test,0);
+  pthread_join(th0,0);
+  pthread_join(th1,0);
+  printf(“%d\n”, count);
+}
+
+void test() {
+  for(int j=0;j&lt;MAX;j++) count=count+1;
+}</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>For the following sets of assembly instructions for processes 1 and 2, give an interleaving of instructions that results in v having the value 2.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>P1. MOVE V, r0			Q1. MOVE V, r1
+P2. INCR r0			    Q2. INCR r1
+P3. MOVE r0, V			Q3. MOVE r1, V</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>For the following sets of assembly instructions for processes 1 and 2, give an interleaving of instructions that results in v having the value 3.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>P1. MOVE V, r0			Q1. MOVE V, r1
+P2. INCR r0			    Q2. INCR r1
+P3. MOVE r0, V			Q3. MOVE r1, V</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Consider the following code for a process P0. Assume that the code for P1 is symmetric. Is it possible for both P0 and P1 to be in the same critical section at the same time?</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>Shared variable: turn :{0,1}
+while (TRUE) {
+  while (turn != 0);  /* busy waiting */
+  CS();
+  turn = 1; /* let the other enter */
+  Non_CS();
+}</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Consider the following code for a process P0. Assume that the code for P1 is symmetric. Is it possible for both P0 and P1 to be in the same critical section at the same time?</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>Shared variable: interested[i] : int, init 0
+while (TRUE) {
+  interested[0] = 10;
+  while (interested[1] &gt; 0) interested[0]--;
+  CS();
+  interested[0] = 0;
+  Non_CS();
+}</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If P0 is in the critical section, what values should interested have?</p>
+</li>
+<li>
+<p>If P1 is in the critical section, what values should interested have?</p>
+</li>
+<li>
+<p>Is it possible for both P0 and P1 to be in the same critical section at the same time?</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Consider the following code for a process P0. Assume that the code for P1 is symmetric.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>Shared variables: interested[i] :boolean;
+                  turn :{0,1}
+interested[0] = FALSE;
+while (TRUE) {
+  interested[0] = TRUE;  /* declare interest */
+  turn = 0; /* takes care of race condition */
+  repeat if /* busy wait */
+   (interested[1] == TRUE &amp;&amp; turn == 0);
+  CS();
+  interested[0] = FALSE; /* unblock P1 */
+  Non_CS();
+}</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If P0 is in the critical section, what values should interested and turn have?</p>
+</li>
+<li>
+<p>If P1 is in the critical section, what values should interested and turn have?</p>
+</li>
+<li>
+<p>Is it possible for both P0 and P1 to be in the same critical section at the same time?</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Consider the producer/consumer problem discussed in class. Suppose the buffer has size 8 and contains the values -2,3,4,-5; that <code>in = 3</code> and <code>out = 7</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Draw the state of the buffer, in, out, and num_items.</p>
+</li>
+<li>
+<p>Suppose the producer adds one item. Draw the new state of the buffer.</p>
+</li>
+<li>
+<p>Suppose the consumer removes 3 items. Draw the new state of the buffer.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Consider the following implementation for two threads, one a producer and the other a consumer. Does the code below contain a race condition? If yes, explain how the current implementation can lead to inconsistent buffer state.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>//Producer Threads:
+int item;
+while(1) {
+  item = produce_item();
+  pthread_mutex_lock(&amp;mux);
+  buff[in] = item;
+  in = (in+1)%N;
+  pthread_mutex_unlock(&amp;mux);
+  num_items++;
+}
+//Consumer thread
+int item;
+while(1) {
+  pthread_mutex_lock(&amp;mux);
+  item = buff[out];
+  out = (out+1)%N;
+  pthread_mutex_unlock(&amp;mux);
+  num_items--;
+  consume_item(item);
 }</code></pre>
 </div>
 </div>
