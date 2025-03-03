@@ -24,13 +24,6 @@
 . What is the program counter?
 . When are processes created? destroyed? blocked?
 . How many processes are created for the command `ls *.c | grep apple`?
-. How many processes are created for the following commands?
-+
-[source]
-----
-$ ./a.out
-$ ./a.out
-----
 
 . The following program creates a zombie process. Why?
 +
