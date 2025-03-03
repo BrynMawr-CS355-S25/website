@@ -11,293 +11,55 @@ Exams are closed book. You can bring one written cheat sheet. 90 minutes in clas
 
 Topics:
 
-* Tannenbaum Chapter 1-2, 6
+* Tanenbaum Chapter 1-2, 6
 * Command line and terminal
 * Files: stdin, stdout, stderr, text and binary files
 * System calls: files, processes, signals, context switching
 * Basic POSIX threads: pthread, wait, barrier, mutex, conditionals
 
-= Practice questions: Short Answer
+= Tanenbaum
 
-* What is the operating system?
-* What are two main purposes of the operating system?
-* What are the different states that a process might be in?
-* Why might a processed be in a blocked state?
-* What is a process? 
-* What is the difference between an interrupt and a trap?
-* Why do we need interrupts and traps?
-* Why do we need special mechanisms, such as pipes or sockets, to communicate between processes?
-* How can you kill a process using `ps` ?
-* What is a zombie process?
-* What is an orphan process?
-* What is a signal handler?
-* Some signals cannot be ignored. Name a signal that cannot be ignored and explain why a program cannot ignore it. 
-* Why might we want to register a signal handler?
-* When does the OS send the SIGSEGV signal?
-* When does the OS send the SIGINT signal?
-* When does the OS send the SIGCHD signal?
-* What happens when a process calls fork?
-* What is a thread? How does a thread differ from a process? How are threads similar?
-* Why and when might we want to use multiple threads to implement a program?
-* Explain how threads might improve the implementation of a word processor. 
-* Explain how threads might improve the implementation of a web server. 
-* Explain how threads might improve the implementation of a web server. 
-* Why and when might we want to use multiple processes to implement a program? 
-* What is a function pointer?
-* What is a void* pointer?
+* Chapter 1: 1, 3, 6, 9, 10, 12, 13, 17, 20, 23, 26, 28, 30
+* Chapter 2: 5, 6, 7, 8, 12, 13, 14, 15, 16, 17, 18, 19, 25, 26, 30, 36, 40, 42, 43, 44, 45, 47, 48, 49, 50, 51, 64, 65
+* Chapter 6: 2, 3, 10, 14, 15, 16, 22, 24, 26, 27, 30, 34, 35, 39, 40
 
-= Bash, command line, and terminal
+= Additional practice
 
+== OS
 
+. What is an operating system?
+. What are examples of abstractions that the OS maintains that make using computer hardware easier? 
+. What is multiprogramming?
+. What are some challenges of designing/implementing an OS that supports multi-programming?
+. What are the two main purposes of the operating system?
+. What is the difference between an interrupt and a trap?
+. What features do interrupts and traps implement in an OS?
+. What is the advantage of using interrupts and traps for an OS implementation. In other words, if an OS were not designed with these features, how would it change the design of modern operating systems. 
+. What is the kernel?
+. What is the difference between kernel mode and user mode?
+. What is a system call? How are system calls different from user-defined functions?
+. How are errors reported with most system calls? 
 
-= Processes
+== Programming
 
-1) The following program creates a zombie process. Why?
+include::studyguide-programming.adoc[]
 
-[source]
-----
-void main() {
-  if (fork() == 0) { /*child */
-    printf("Child, PID = %d\n", getpid());
-    exit(0);
-  } else { /*parent */
-    printf("Parent, PID = %d\n", getpid());
-    while(1) {
-    }
-  }
-}
-----
+== Shell, command line, files
 
-2) Draw the process timeline created by executing the following program. For each created process, list its output (e.g. what does each process print)?
+include::studyguide-shell.adoc[]
 
-[source]
-----
-int main() {
-  pid_t ret;
+== Processes 
 
-  printf("A\n");
+include::studyguide-processes.adoc[]
 
-  ret = fork();
-  if(ret == 0) {
-    printf("B\n");
+== Threads
 
-    ret = fork();
-    if(ret == 0) {
-      printf("C\n");
-    }
-    printf("D\n");
-  } else {
-    printf("E\n");
+include::studyguide-threads.adoc[]
 
-    ret = fork();
-    printf("F\n");
-  }
+== Scheduling
 
-  printf("G\n");
-  return 0;
-}
-----
+include::studyguide-scheduling.adoc[]
 
-3) Draw the process timeline created by executing the following program. For each created process, list its output (e.g. what does each process print)? How many processes are created?
+== Deadlocks
 
-[source]
-----
-int main() {
-  pid_t ret;
-
-  printf("A\n");
-
-  for (int i = 0; i < 3; i++)
-  {
-     ret = fork();
-     if (ret == 0) // child
-     {
-        printf("B%d\n", i); 
-     }
-  }
-
-  printf("Z\n");
-  return 0;
-}
-----
-
-4) What type of event does SIGINT represent? Sketch a program that registers a signal handler for SIGINT?
-
-5) Draw the process timeline created by executing the following program. For each created process, list its output (e.g. what does each process print)? How many processes are created?
-
-[source]
-----
-int main() {
-  pid_t ret;
-
-  printf("A\n");
-
-  for (int i = 0; i < 3; i++)
-  {
-     ret = fork();
-     if (ret == 0) // child
-     {
-        printf("B%d\n", i); 
-        exit(0);
-     }
-  }
-
-  printf("Z\n");
-  return 0;
-}
-----
-
-6) Draw the process timeline created by executing the following program. For each created process, list its output (e.g. what does each process print)? How many processes are created?
-
-[source]
-----
-int main() {
-  pid_t ret;
-
-  int value = 10;
-  printf("A%d\n", value);
-
-  ret = fork();
-  if (ret == 0) // child
-  {
-     value--;
-  }
-  else
-  {
-     value++;
-  }
-
-  printf("Z%d\n", value);
-  return 0;
-}
-----
-
-7) Implement a program whose behavior matches the given timeline.
-
-image::processes.png[width=200px]
-
-= Threads
-
-1) Sketch a multi-threaded program (N threads) that computes the average of a list of numbers. You can assume that the size of the list can be evenly divided by N. 
-
-2) Draw the stack diagram for the following program with two threads.
-
-[source]
-----
-struct foo {
-   long id;
-   char message[16];
-};
-
-void *HelloWorld(void *id) {
-  struct foo *holder = (struct foo *) id;
-  printf("%s world! I am thread %ld\n", holder->message, holder->id);
-  return NULL;
-}
-
-int main(int argc, char **argv) {
-  struct foo holder1, holder2;
-  holder1.id = 1;
-  strcpy(holder1.message, "caio");
-  
-  holder2.id = 2;
-  strcpy(holder2.message, "aloha");
-
-  long* retval1 = NULL, *retval2 = NULL;
-  pthread_t thread1, thread2;
-  pthread_create(&thread1, NULL, HelloWorld, &holder1);
-  pthread_create(&thread2, NULL, HelloWorld, &holder2);
-  pthread_join(thread1, NULL);
-  pthread_join(thread2, NULL);
-  return 0;
-}
-----
-
-= Scheduling
-
-= Deadlocks
-
-= Programming
-
-1) What is the output of the following program? 
-
-[source]
-----
-#include <stdio.h>
-
-typedef void (*functionType)(int a, int b);
-
-void example(int a, int b) {
-  printf("This is a function stored as data! %d %d\n", a, b);
-}
-
-int main() {
-  functionType myFunction = example;
-  (*myFunction)(10, 3);
-}
-----
-
-2) Draw the stack diagram for the following program. Then indicate which of the following dereferences are safe.
-
-[source]
-----
-#include <stdio.h>
-
-int main()
-{
-  void* generic = NULL;
-  int a = 3;
-  double b = 4.5;
-  generic = &a;
-  generic = &b;
-
-  printf("test %f\n", *generic); 
-
-  double* double_ptr = (double *) generic;
-  printf("test %f\n", *double_ptr); 
-
-  int* int_ptr = (int *) generic;
-  printf("test %d\n", *int_ptr); 
-
-  generic = &a;
-
-  double* double_ptr = (double *) generic;
-  printf("test %f\n", *double_ptr); 
-
-  int* int_ptr = (int *) generic;
-  printf("test %d\n", *int_ptr); 
-
-  return 0;
-}
-----
-
-3) Draw the stack diagram for the following program. What is the output?
-
-[source]
-----
-#include <stdio.h>
-#include <string.h>
-
-char* foo(char* str, char c)
-{
-  int n = strlen(str);
-  for(int i = 0; i < n; i++)
-  {
-    if (str[i] == c)
-    {
-      str[i] = '\0';
-      return str;
-    }
-  }
-  return NULL;
-}
-
-int main()
-{
-  char buffer[8];
-  strcpy(buffer, "a,b,c");
-
-  char* s = foo(buffer, ',');
-  printf("%s\n", s);
-}
-----
+include::studyguide-deadlocks.adoc[]

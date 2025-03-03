@@ -1,0 +1,43 @@
+
+. What is a thread? How does a thread differ from a process? How are threads similar?
+. Why and when might we want to use multiple _threads_ to implement a program?
+. Why and when might we want to use multiple _processes_ to implement a program? 
+. Explain how threads might improve the implementation of a word processor. 
+. Explain how threads might improve the implementation of a web server. 
+. Explain how threads might improve the implementation of a web server. 
+. How do threads created in user space differ from threads created in kernel space?
+
+. Sketch a multi-threaded program (N threads) that computes the average of a list of numbers. You can assume that the size of the list can be evenly divided by N. 
+
+. Draw the stack diagram for the following program with two threads.
++
+[source]
+----
+struct foo {
+   long id;
+   char message[16];
+};
+
+void *HelloWorld(void *id) {
+  struct foo *holder = (struct foo *) id;
+  printf("%s world! I am thread %ld\n", holder->message, holder->id);
+  return NULL;
+}
+
+int main(int argc, char **argv) {
+  struct foo holder1, holder2;
+  holder1.id = 1;
+  strcpy(holder1.message, "caio");
+  
+  holder2.id = 2;
+  strcpy(holder2.message, "aloha");
+
+  long* retval1 = NULL, *retval2 = NULL;
+  pthread_t thread1, thread2;
+  pthread_create(&thread1, NULL, HelloWorld, &holder1);
+  pthread_create(&thread2, NULL, HelloWorld, &holder2);
+  pthread_join(thread1, NULL);
+  pthread_join(thread2, NULL);
+  return 0;
+}
+----

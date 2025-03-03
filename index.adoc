@@ -16,11 +16,10 @@ Instructor: link:https://www.cs.brynmawr.edu/~alinen[Aline Normoyle]
 [.anns]
 
 * Welcome!
-* **No Written Questions for Week 06 (Feb 25)** 
-* **Lab Feb 27**: Assignment 05 Checkin/Demos (No extensions possible past Feb 27)
-* link:assts/asst05.html[Assignment 05: Userthreads] has due dates Thursday, Feb 27th and Sunday March 2. 
+* **No Lab March 6**
+* link:assts/asst05.html[Assignment 05: Userthreads] due Sunday March 2. 
 * link:questions-week07.txt[Written Questions Due March 4th]
-* **Midterm I**: 1.5 hours in class March 6. Closed Book. One cheatsheet.
+* **Midterm I**: 1.5 hours in class March 6. Closed Book. One cheatsheet. link:studyguide1.html[Study Guide I]
 
 == Course Info
 
@@ -81,7 +80,7 @@ include::schedule.adoc[]
 
 == Text and Tools
 
-* Modern Operating Systems, 4th Edition, by Andrew S. Tannenbaum, Prentice Hall, 2015. ( Note that there is a newer 5th Edition, but there is little difference in the materials we cover and the 4th Edition is significantly cheaper.)
+* Modern Operating Systems, 4th Edition, by Andrew S. Tanenbaum, Prentice Hall, 2015. ( Note that there is a newer 5th Edition, but there is little difference in the materials we cover and the 4th Edition is significantly cheaper.)
 * The Linux Programming Interface, by Michael Kerrisk, No Starch Press, 2010. link:https://nostarch.com/tlpi/[Available from No Starch Press]
 * link:https://diveintosystems.org/[Dive Intro Systems] 
 * **Github Account** Please go to link:https://github.com/[github.com] and register. You will be using github to submit assignments. 

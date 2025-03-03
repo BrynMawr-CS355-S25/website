@@ -440,350 +440,131 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="header">
 </div>
 <div id="content">
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 22.2222%;">
-<col style="width: 66.6667%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Week</th>
-<th class="tableblock halign-left valign-top">Date</th>
-<th class="tableblock halign-left valign-top">Agenda</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">January 21, 23 <a id="week01"></a></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Introduction, Programming, Bash</strong></p>
-</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>How does a CPU-bound process differ from an IO-bound process?</p>
+</li>
+<li>
+<p>What does it mean for a scheduling algorithm to be preemptive? non-preemptive?</p>
+</li>
+<li>
+<p>What are the advantages and disadvantages of the FCFS scheduling algorithm. Give a class of applications where FCFS is the best scheduling policy.</p>
+</li>
+<li>
+<p>What are the advantages and disadvantages of the SJF scheduling algorithm. Give a class of applications where FCFS is the best scheduling policy.</p>
+</li>
+<li>
+<p>What are the advantages and disadvantages of the RR scheduling algorithm. Give a class of applications where FCFS is the best scheduling policy.</p>
+</li>
+<li>
+<p>How do the needs of real-time systems differ from other application domains?</p>
+</li>
+<li>
+<p>What is priority inversion? How can we avoid it?</p>
+</li>
+<li>
+<p>Suppose we have a batch system with the following jobs, scheduled with FCFS. Job 1: 15 units, Job 2: 8 units, Job 1: 1 units.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Topics: History, Bash, Compiling and Building, C/C++</p>
+<p>Show the timeline of jobs based on this scheduling strategy.</p>
 </li>
 <li>
-<p>Reading: Tanenbaum 1.1-1.6</p>
+<p>What is the average waiting time?</p>
 </li>
 <li>
-<p><a href="assts/asst01.html">Assignment 01</a>: Due January 26</p>
-</li>
-<li>
-<p>Lab Jan 23: Git!</p>
+<p>What is the average turnaround time?</p>
 </li>
 </ul>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">January 28, 30 <a id="week02"></a></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Processes</strong></p>
 </div>
+</li>
+<li>
+<p>Suppose we have a batch system with the following jobs, scheduled with SJF. Job 1: 15 units, Job 2: 8 units, Job 1: 1 units.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Topics: OS Concepts, Processes, Fork</p>
+<p>Show the timeline of jobs based on this scheduling strategy.</p>
 </li>
 <li>
-<p>Reading: Tanenbaum 2.1</p>
+<p>What is the average waiting time?</p>
 </li>
 <li>
-<p><a href="labs/lab01.html">Lab Jan 30</a></p>
-</li>
-<li>
-<p><a href="assts/asst02.html">Assignment 02</a>: Due Feb 2</p>
-</li>
-<li>
-<p>Written Questions (Due Jan 28 in class, Be Brief!): Tanenbaum pgs 81-83: 1, 9, 10, 17, 20, 23, 27, 28</p>
+<p>What is the average turnaround time?</p>
 </li>
 </ul>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">February 4, 6 <a id="week03"></a></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Threads</strong></p>
 </div>
+</li>
+<li>
+<p>Suppose we have a batch system with the following jobs, scheduled with RR and a quantum of 5. Job 1: 15 units, Job 2: 8 units, Job 1: 1 units.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>LECTURE CANCELED THURSDAY FEB 6</strong></p>
+<p>Show the timeline of jobs based on this scheduling strategy.</p>
 </li>
 <li>
-<p>Topics: System calls, signals</p>
+<p>What is the average waiting time?</p>
 </li>
 <li>
-<p><a href="labs/lab02.html">Lab Feb 6</a></p>
-</li>
-<li>
-<p><a href="assts/asst03.html">Assignment 03</a>: Due Feb 9</p>
-</li>
-<li>
-<p>Written Questions (Due Feb 4 in class, Be Brief): <a href="questions-week03.txt">Written Questions</a></p>
+<p>What is the average turnaround time?</p>
 </li>
 </ul>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">February 11, 13 <a id="week04"></a></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Job control, Threads</strong></p>
 </div>
+</li>
+<li>
+<p>Suppose we have a batch system with the following jobs, scheduled with HPF and a quantum of 5. Assume all jobs start with the same priority. Job 1: 15 units, Job 2: 8 units, Job 1: 1 units.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Topics: Process groups, sessions, advanced signals, introduction to pthreads</p>
+<p>Show the timeline of jobs based on this scheduling strategy.</p>
 </li>
 <li>
-<p>Read: Tanenbaum 2.2, Kerrisk Chpt 34</p>
+<p>What is the average waiting time?</p>
 </li>
 <li>
-<p><a href="labs/lab03.html">Lab Feb 13</a></p>
-</li>
-<li>
-<p><a href="assts/asst04.html">Assignment 04</a>: Due Feb 16</p>
-</li>
-<li>
-<p>Written Questions (Due Feb 11 in class, Be Brief): Tanenbaum pgs 174-180, #9, 14, 18, 26, 36, 44</p>
+<p>What is the average turnaround time?</p>
 </li>
 </ul>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">February 18, 20 <a id="week05"></a></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Threads, Scheduling</strong></p>
 </div>
+</li>
+<li>
+<p>Suppose we have a batch system with the following jobs, scheduled with HPF and a quantum of 5. Assume Job 2 has higher priority than Jobs 1 and 2. Job 1: 15 units, Job 2: 8 units, Job 1: 1 units.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Read: Tanenbaum 2.4</p>
+<p>Show the timeline of jobs based on this scheduling strategy.</p>
 </li>
 <li>
-<p><a href="labs/lab04.html">Lab Feb 20</a></p>
+<p>What is the average waiting time?</p>
 </li>
 <li>
-<p>No Written Questions Due</p>
+<p>What is the average turnaround time?</p>
 </li>
 </ul>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">6</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">February 25, 27 <a id="week06"></a></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>IPC, synchronization, deadlock</strong></p>
 </div>
+</li>
+<li>
+<p>Suppose we are scheduling three tasks for a real-time system using EDF. What is the utilization of these tasks? Show the scheduling order.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Read: Tanenbaum 2.3, 2.5</p>
+<p>Task T1 with period 10 and CPU time 3</p>
 </li>
 <li>
-<p><a href="assts/asst05.html">Assignment 05</a>: Due March 2</p>
+<p>Task T2 with period 10 and CPU time 1</p>
 </li>
 <li>
-<p>Lab Feb 27: Userthread library demos</p>
-</li>
-<li>
-<p>No Written Questions Due</p>
+<p>Task T3 with period 15 and CPU time 8</p>
 </li>
 </ul>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">March 4,6 <a id="week07"></a></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Memory Management</strong></p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>Read Chapter 6</p>
 </li>
-<li>
-<p><a href="questions-week07.txt">Written Questions Due March 4th</a></p>
-</li>
-<li>
-<p><strong>Exam 01</strong> In Class, March 6</p>
-</li>
-<li>
-<p><strong>No Lab March 6</strong></p>
-</li>
-</ul>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">March 11, 13 <a id="week08"></a></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Spring Break</strong></p>
+</ol>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>NO LECTURES, LABS, HOMEWORKS</strong></p>
-</li>
-</ul>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">9</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">March 18, 20 <a id="week09"></a></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Virtual memory, paging, and segmentation</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Read: Tanenbaum Chapter 4</p>
-</li>
-<li>
-<p><a href="assts/asst05.html">Assignment 06</a>:</p>
-</li>
-<li>
-<p>Lab March 20</p>
-</li>
-<li>
-<p>Written Questions (Due March 18 in class, Be Brief): Tanenbaum</p>
-</li>
-</ul>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">10</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">March 25, 27 <a id="week10"></a></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>File Systems I</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Read: Tanenbaum Chapter 4</p>
-</li>
-<li>
-<p><a href="assts/asst06.html">Assignment 07</a>:</p>
-</li>
-<li>
-<p>Lab March 27</p>
-</li>
-<li>
-<p>Written Questions (Due March 25 in class, Be Brief): Tanenbaum</p>
-</li>
-</ul>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">11</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">April 1, 3 <a id="week11"></a></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>File Systems II</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Lab April 3</p>
-</li>
-<li>
-<p>Written Questions (Due April 1 in class, Be Brief): Tanenbaum</p>
-</li>
-</ul>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">12</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">April 8, 10 <a id="week12"></a></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>I/O and disks</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Read: Tanenbaum Chapter 5</p>
-</li>
-<li>
-<p><a href="assts/asst07.html">Assignment 08</a>:</p>
-</li>
-<li>
-<p>Lab April 10</p>
-</li>
-<li>
-<p>Written Questions (Due April 8 in class, Be Brief): Tanenbaum</p>
-</li>
-</ul>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">13</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">April 15, 17 <a id="week13"></a></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Multiple Processors, Virtualization and the Cloud</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Read: Tanenbaum Chapter 7 and 8</p>
-</li>
-<li>
-<p>Lab April 17</p>
-</li>
-<li>
-<p>Written Questions (Due April 15 in class, Be Brief): Tanenbaum</p>
-</li>
-</ul>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">14</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">April 22, 24 <a id="week14"></a></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Security and Protection</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Read: Tanenbaum Chapter 9 and 10</p>
-</li>
-<li>
-<p>Lab April 24</p>
-</li>
-<li>
-<p>Written Questions (Due April 22 in class, Be Brief): Tanenbaum</p>
-</li>
-</ul>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">15</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">April 29, May 1 <a id="week15"></a></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Review</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Exam 02</p>
-</li>
-<li>
-<p>Lab May 1</p>
-</li>
-</ul>
-</div></div></td>
-</tr>
-</tbody>
-</table>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2025-03-02 14:32:56 -0500
+Last updated 2025-03-03 14:50:05 -0500
 </div>
 </div>
 </body>

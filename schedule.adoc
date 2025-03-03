@@ -10,7 +10,7 @@
 | *Introduction, Programming, Bash* 
 
 * Topics: History, Bash, Compiling and Building, C/C++ 
-* Reading: Tannenbaum 1.1-1.6
+* Reading: Tanenbaum 1.1-1.6
 * link:assts/asst01.html[Assignment 01]: Due January 26
 * Lab Jan 23: Git!
 
@@ -20,10 +20,10 @@
 | *Processes* 
 
 * Topics: OS Concepts, Processes, Fork
-* Reading: Tannenbaum 2.1
+* Reading: Tanenbaum 2.1
 * link:labs/lab01.html[Lab Jan 30]
 * link:assts/asst02.html[Assignment 02]: Due Feb 2
-* Written Questions (Due Jan 28 in class, Be Brief!): Tannenbaum pgs 81-83: 1, 9, 10, 17, 20, 23, 27, 28
+* Written Questions (Due Jan 28 in class, Be Brief!): Tanenbaum pgs 81-83: 1, 9, 10, 17, 20, 23, 27, 28
 
 //-----------------------------
 |3
@@ -42,17 +42,17 @@
 |*Job control, Threads*
 
 * Topics: Process groups, sessions, advanced signals, introduction to pthreads 
-* Read: Tannenbaum 2.2, Kerrisk Chpt 34
+* Read: Tanenbaum 2.2, Kerrisk Chpt 34
 * link:labs/lab03.html[Lab Feb 13]
 * link:assts/asst04.html[Assignment 04]: Due Feb 16
-* Written Questions (Due Feb 11 in class, Be Brief): Tannenbaum pgs 174-180, #9, 14, 18, 26, 36, 44
+* Written Questions (Due Feb 11 in class, Be Brief): Tanenbaum pgs 174-180, #9, 14, 18, 26, 36, 44
 
 //-----------------------------
 |5
 |February 18, 20 anchor:week05[]
 |*Threads, Scheduling* 
 
-* Read: Tannenbaum 2.4
+* Read: Tanenbaum 2.4
 * link:labs/lab04.html[Lab Feb 20]
 * No Written Questions Due
 
@@ -61,7 +61,7 @@
 |February 25, 27 anchor:week06[]
 |*IPC, synchronization, deadlock* 
 
-* Read: Tannenbaum 2.3, 2.5
+* Read: Tanenbaum 2.3, 2.5
 * link:assts/asst05.html[Assignment 05]: Due March 2
 * Lab Feb 27: Userthread library demos
 * No Written Questions Due
@@ -88,20 +88,20 @@
 |March 18, 20 anchor:week09[]
 |*Virtual memory, paging, and segmentation* 
 
-* Read: Tannenbaum Chapter 4
+* Read: Tanenbaum Chapter 4
 * link:assts/asst05.html[Assignment 06]: 
 * Lab March 20
-* Written Questions (Due March 18 in class, Be Brief): Tannenbaum 
+* Written Questions (Due March 18 in class, Be Brief): Tanenbaum 
 
 //-----------------------------
 |10
 |March 25, 27 anchor:week10[]
 |*File Systems I* 
 
-* Read: Tannenbaum Chapter 4
+* Read: Tanenbaum Chapter 4
 * link:assts/asst06.html[Assignment 07]: 
 * Lab March 27
-* Written Questions (Due March 25 in class, Be Brief): Tannenbaum 
+* Written Questions (Due March 25 in class, Be Brief): Tanenbaum 
 
 //-----------------------------
 |11
@@ -109,35 +109,35 @@
 |*File Systems II* 
 
 * Lab April 3
-* Written Questions (Due April 1 in class, Be Brief): Tannenbaum 
+* Written Questions (Due April 1 in class, Be Brief): Tanenbaum 
 
 //-----------------------------
 |12
 |April 8, 10 anchor:week12[]
 |*I/O and disks* 
 
-* Read: Tannenbaum Chapter 5 
+* Read: Tanenbaum Chapter 5 
 * link:assts/asst07.html[Assignment 08]: 
 * Lab April 10
-* Written Questions (Due April 8 in class, Be Brief): Tannenbaum 
+* Written Questions (Due April 8 in class, Be Brief): Tanenbaum 
 
 //-----------------------------
 |13
 |April 15, 17 anchor:week13[]
 |*Multiple Processors, Virtualization and the Cloud* 
 
-* Read: Tannenbaum Chapter 7 and 8 
+* Read: Tanenbaum Chapter 7 and 8 
 * Lab April 17
-* Written Questions (Due April 15 in class, Be Brief): Tannenbaum 
+* Written Questions (Due April 15 in class, Be Brief): Tanenbaum 
 
 //-----------------------------
 |14
 |April 22, 24 anchor:week14[]
 |*Security and Protection* 
 
-* Read: Tannenbaum Chapter 9 and 10 
+* Read: Tanenbaum Chapter 9 and 10 
 * Lab April 24
-* Written Questions (Due April 22 in class, Be Brief): Tannenbaum 
+* Written Questions (Due April 22 in class, Be Brief): Tanenbaum 
 
 //-----------------------------
 |15
