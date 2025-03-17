@@ -4,7 +4,7 @@ include::header.adoc[]
 :Author Initials: ASN
 :Date:    2020-08-15
 :Revision: 0.1
-:ASST: threads-USERNAME
+:ASST: userthreads-USERNAME
 
 = {title}
 
@@ -305,7 +305,7 @@ have good style.
 
 = Resubmission
 
-Your shell program (A03-A04) is eligible for resubmission at the end of the term.
+Your userthreads library (A05) is eligible for resubmission at the end of the term.
 Students can submit up to two times:
 
 * The first time for up to 3.7 credit

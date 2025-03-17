@@ -16,10 +16,9 @@ Instructor: link:https://www.cs.brynmawr.edu/~alinen[Aline Normoyle]
 [.anns]
 
 * Welcome!
-* **No Lab March 6**
-* link:assts/asst05.html[Assignment 05: Userthreads] due Sunday March 2. 
-* link:questions-week07.txt[Written Questions Due March 4th]
-* **Midterm I**: 1.5 hours in class March 6. Closed Book. One cheatsheet. link:studyguide1.html[Study Guide I]
+* link:labs/lab05.html[Lab 05: Advanced pointers] due Thursday, March 20
+* link:assts/asst06.html[Assignment 06: Memory Manager] due Sunday March 30. 
+* link:questions-week10.txt[Written Questions Due March 25th]
 
 == Course Info
 

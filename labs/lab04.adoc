@@ -163,7 +163,7 @@ void nextEven()
 Can you write a program that alternates between two functions at a set interval?
 
 In the file, `alarm.c`, write a program that alternates between two functions at a set interval. 
-Use a kernel timer like in the link:../assts/sig_alarm.c[sig_alarm] demo from class.
+Use a kernel timer like in the link:sig_alarm.c[sig_alarm] demo from class.
 
 [source]
 ----
