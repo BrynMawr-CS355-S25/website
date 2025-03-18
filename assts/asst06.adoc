@@ -15,7 +15,7 @@ The goals for this assignment are:
 * Write your own memory manager
 * Work with blocks of memory using advanced pointers
 
-NOTE: We will use new starter code: link:https://classroom.github.com/a/d4XsWfhO
+NOTE: We will use new starter code: link:https://classroom.github.com/a/d4XsWfhO[Start Code Link]
 
 = Memory Manager
 
