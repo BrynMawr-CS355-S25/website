@@ -37,6 +37,9 @@ limitations:
 * The user must deallocate memory in the opposite order that you allocate it
 * The user can ask for at most ALLOCSIZE blocks of memory (e.g. the size of the stack at initialization). If the user asks for more memory than is available, the allocator should return 0.
 
+
+image::Lab05.png[width=200px]
+
 You are given basecode for this assignment. 
 
 * Implement `char* stalloc(int n)`
