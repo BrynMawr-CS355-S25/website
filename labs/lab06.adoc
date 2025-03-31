@@ -1,6 +1,6 @@
 include::header.adoc[]
 
-:title: Threads I
+:title: Inodes you're busy
 :Author Initials: ASN
 :Date:    2020-08-15
 :Revision: 0.1
@@ -8,11 +8,11 @@ include::header.adoc[]
 
 = {title}
 
-Lab exercises for February 20th.
+Lab exercises for April 3rd 
 
 The goals for this assignment are:
 
-* Understanding the pthread library
-* Working with ucontext 
+* Working with inodes
+* Understanding union
 
 :sectnums:

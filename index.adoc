@@ -16,9 +16,9 @@ Instructor: link:https://www.cs.brynmawr.edu/~alinen[Aline Normoyle]
 [.anns]
 
 * Welcome!
-* link:labs/lab05.html[Lab 05: Advanced pointers] due Thursday, March 20
-* link:assts/asst06.html[Assignment 06: Memory Manager] due Sunday March 30. 
-* link:questions-week10.txt[Written Questions Due March 25th]
+* link:labs/lab06.html[Lab 06: Inodes you're busy] due Thursday, April 3
+* link:assts/asst07.html[Assignment 07: The Defragmentor] due Sunday April 6. 
+* link:questions-week12.txt[Written Questions Due April 8th]
 
 == Course Info
 

@@ -86,7 +86,7 @@
 //-----------------------------
 |9
 |March 18, 20 anchor:week09[]
-|*Memory Management, Virtual Memory*
+|*Malloc/Free, Memory Management*
 
 * Read: Tanenbaum 3.1-3.3
 * link:assts/asst06.html[Assignment 06]: Memory Manager, Due Sunday, March 30
@@ -96,9 +96,9 @@
 //-----------------------------
 |10
 |March 25, 27 anchor:week10[]
-|*Paging and segmentation* 
+|*Virtual Memory and Paging* 
 
-* Read: Tanenbaum 3.4-3.7
+* Read: Tanenbaum 3.4-3.6
 * Lab March 27: Memory management demos
 * link:questions-week10.txt[Written Questions Due March 25th]
 
@@ -109,7 +109,7 @@
 
 * Read: Tanenbaum Chapter 4
 * link:assts/asst07.html[Assignment 07]: Defragmentor, Due Sunday, April 6
-* Lab April 3
+* link:labs/lab06.html[Lab April 3]
 * Written Questions (Due April 1 in class, Be Brief): Tanenbaum 
 
 //-----------------------------
@@ -120,7 +120,7 @@
 * Read: Tanenbaum Chapter 4 
 * link:assts/asst07.html[Assignment 08]: File System, Due Sunday, April 27
 * Lab April 10
-* Written Questions (Due April 8 in class, Be Brief): Tanenbaum 
+* link:questions-week12.txt[Written Questions Due April 8th, Be brief]
 
 //-----------------------------
 |13
