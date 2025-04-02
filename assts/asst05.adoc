@@ -285,12 +285,13 @@ can not tell that it works.
 Grades are out of 4 points.
 
 * (4 points) Userthread
-** (1.0 points) Thread API/Logging/Valgrind
-** (0.6 points) FIFO 
-** (0.7 points) SJF 
-** (0.8 points) Priority 
-** (0.6 points) Test Suite
-** (0.3 points) style and header comment
+** (0.5 points) Thread API/Logging (basic functionality/infrastructure)
+** (0.5 points) Valgrind
+** (0.9 points) FIFO 
+** (0.9 points) SJF 
+** (0.9 points) Priority 
+** (0.2 points) Test Suite
+** (0.1 points) style and header comment
 
 *Code rubrics*
 
