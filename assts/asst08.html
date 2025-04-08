@@ -242,19 +242,16 @@ of related built-in commands.</p>
 <h3 id="_the_shell">The Shell</h3>
 <div class="paragraph">
 <p>You should extend your shell to work with the new file system. This shell does
-not need to support pipes or job control. Thus, you can use your "better shell"
-if you wish.  Make sure that your shell supports commands such as echo, ps, etc.</p>
+not need to support pipes or job control. Thus, you can use your "baby shell"
+as a starting point.  Make sure that your shell supports commands such as echo, ps, etc.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>On start-up, the shell should look (in the same directory) for a file called "DISK" where your file system is located. If it is not found, please print a message asking the user to run the format command to make one. For more details on format, see Section 4.</p>
+<p>On start-up, look (in the same directory) for a file called "DISK" where your file system is located. If it is not found, please print a message asking the user to run the format command to make one. For more details on format, see Section 4.</p>
 </li>
 <li>
 <p>Once your shell has found the file system, it should mount it at the root directory and display a log-in prompt.</p>
-</li>
-<li>
-<p>Create at least a regular user and a super user, and start the user at the appropriate home directory after logging in.</p>
 </li>
 <li>
 <p>Support redirections. You need to support parsing for &gt;, and &gt;&gt;. <code>&gt;&gt;</code> appends text to a file.</p>
@@ -331,21 +328,21 @@ use to work with files from your shell.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>$ <strong>./shell <disk_name></strong>
+<pre class="highlight"><code>$ <strong>./shell</strong>
+myshell$> ls
+. ..
+myshell$> mount <disk_name> /newdir
+myshell$> ls
+. .. newdir
+myshell$> cd newdir
+myshell$> ls
+. .. A.txt B.txt C.txt usr
+$ <strong>./shell</strong>
 myshell$> ls
 . .. A.txt B.txt C.txt usr
 myshell$> echo "roses are red" > f1.txt
 myshell$> ls
-. .. A.txt B.txt C.txt f1.txt usr
-$ ./shell
-myshell$> ls
-. ..
-myshell$> mount <disk_name> /mnt
-myshell$> ls
-. .. mnt
-myshell$> cd mnt
-myshell$> ls
-. .. A.txt B.txt C.txt usr</code></pre>
+. .. A.txt B.txt C.txt f1.txt usr</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -488,7 +485,7 @@ have good style.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2025-04-08 14:51:36 -0400
+Last updated 2025-04-08 15:06:46 -0400
 </div>
 </div>
 </body>

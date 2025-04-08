@@ -132,12 +132,11 @@ of related built-in commands.
 == The Shell
 
 You should extend your shell to work with the new file system. This shell does
-not need to support pipes or job control. Thus, you can use your "better shell"
-if you wish.  Make sure that your shell supports commands such as echo, ps, etc.
+not need to support pipes or job control. Thus, you can use your "baby shell"
+as a starting point.  Make sure that your shell supports commands such as echo, ps, etc.
 
-. On start-up, the shell should look (in the same directory) for a file called "DISK" where your file system is located. If it is not found, please print a message asking the user to run the format command to make one. For more details on format, see Section 4.
+. On start-up, look (in the same directory) for a file called "DISK" where your file system is located. If it is not found, please print a message asking the user to run the format command to make one. For more details on format, see Section 4.
 . Once your shell has found the file system, it should mount it at the root directory and display a log-in prompt.
-. Create at least a regular user and a super user, and start the user at the appropriate home directory after logging in.
 . Support redirections. You need to support parsing for >, and >>. `>>` appends text to a file. 
 . The following file-system related commands must now be implemented as built-in commands in your shell. You are not allowed to use the Unix-provided ones, not that they will work with your file system anyways.
 .. `ls` - lists all the files in the current or specified directory. Support flags -a and -l.
@@ -178,21 +177,21 @@ use to work with files from your shell.
 
 [source, subs="quotes"]
 ----
-$ **./shell <disk_name>**
+$ **./shell**
+myshell$> ls
+. ..
+myshell$> mount <disk_name> /newdir
+myshell$> ls
+. .. newdir
+myshell$> cd newdir
+myshell$> ls
+. .. A.txt B.txt C.txt usr
+$ **./shell**
 myshell$> ls
 . .. A.txt B.txt C.txt usr
 myshell$> echo "roses are red" > f1.txt
 myshell$> ls
 . .. A.txt B.txt C.txt f1.txt usr
-$ ./shell
-myshell$> ls
-. ..
-myshell$> mount <disk_name> /mnt
-myshell$> ls
-. .. mnt
-myshell$> cd mnt
-myshell$> ls
-. .. A.txt B.txt C.txt usr
 ----
 
 In addition to commands listed above, make sure your shell can execute commands such as
