@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.18">
-<title>Assignment 8: File System</title>
+<title>Final Project: File System</title>
 <link rel="stylesheet" href="../style/cs21.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -14,7 +14,7 @@
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_assignment_8_file_system">Assignment 8: File System</a></li>
+<li><a href="#_final_project_file_system">Final Project: File System</a></li>
 <li><a href="#_file_system">File System</a></li>
 <li><a href="#_overview">Overview</a></li>
 <li><a href="#_file_system_functions">File System Functions</a>
@@ -33,7 +33,7 @@
 </div>
 <div id="content">
 <div class="sect1">
-<h2 id="_assignment_8_file_system">Assignment 8: File System</h2>
+<h2 id="_final_project_file_system">Final Project: File System</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><strong>Due Sunday, April 27, before midnight</strong></p>
@@ -58,7 +58,7 @@
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-We will use new starter code: <a href="">Start Code Link</a>
+We will use new starter code: <a href="https://classroom.github.com/a/pnwA1hqz">Start Code Link</a>
 </td>
 </tr>
 </table>
@@ -69,7 +69,7 @@ We will use new starter code: <a href="">Start Code Link</a>
 <h2 id="_file_system">File System</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><em>Assignment by Dianna Xu</em></p>
+<p><em>Based on the project by Dianna Xu</em></p>
 </div>
 <div class="paragraph">
 <p>In this project, you will implement a file system from scratch. A "disk" in this project is a single
@@ -78,10 +78,11 @@ as a disk image. You must provide a shell that will be able to navigate this fil
 commands that allow a user to perform normal file system related activities. See below for details.</p>
 </div>
 <div class="paragraph">
-<p>Your file system should have a hierarchical tree structure, support file permissions and mounting.
-You should also provide a separate "format" utility that creates and initializes your disk files. The format program
-should run separately from your shell. This project should be completed in groups of 2 or 3. You
-may base your implementation on previous work from any team member.</p>
+<p>Your file system should have a hierarchical tree structure, support file
+permissions and mounting.  You should also provide a separate "format" utility
+that creates and initializes your disk files. The format program should run
+separately from your shell. You may base your implementation on previous work
+from any team member.</p>
 </div>
 </div>
 </div>
@@ -144,19 +145,12 @@ the physical layer to store individual file data.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>typedef struct {
-    fd_t (*f_open)(vnode_t *vn, const char *filename, int flags);
-    size_t (*f_read)(vnode_t *vn, void *data, size_t size, int num, fd_t fd);
-    ... /* and the rest of the file system library functions */
-} fs_driver_t;
-
-typedef struct vnode {
-    int vnode number;
+<pre class="highlight"><code>typedef struct vnode {
+    int vnode_number;
     char name[255];
     struct vnode *parent;
     int permissions;
     int type;
-    fs_driver_t *driver;
     union {
         struct unix_fs { /* these structs need to be fleshed out by you */
             int inode;
@@ -165,7 +159,7 @@ typedef struct vnode {
             int fat_ptr;
         } dosfs;
         struct ram_fs {
-            ulong offset;
+            unsigned long offset;
         } ramfs;
     } fs_info; /* file system specific info */
 } vnode_t;</code></pre>
@@ -181,13 +175,18 @@ and designed one without replacing the entire library.</p>
 <div class="sect2">
 <h3 id="_file_system_library_functions">File System Library Functions</h3>
 <div class="paragraph">
+<p>In the files, <code>vfs.h</code> and <code>vfs.c</code>, implement an API for interacting with your file system. These
+files will be compiled into a dynamic library, <code>libvfs.so</code>.</p>
+</div>
+<div class="paragraph">
 <p>As part of the VFS you need to create programmer-level library functions to provide access to your
 file system operations. A list of library functions that you should implement has been outlined for
 you. The listed calls are very similar to the equivalent standard ANSI C library functions. Consult
-K&amp;R or Unix man pages for specific semantics that you should emulate. These functions should
-be in a separate file, which you can then choose to build into a shared library if you prefer.
-Your shell should call the appropriate functions from your library when implementing the list
-of related built-in commands - see Section 3.</p>
+K&amp;R or Unix man pages for specific semantics that you should emulate.</p>
+</div>
+<div class="paragraph">
+<p>Your shell should call the appropriate functions from your library when implementing the list
+of related built-in commands.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -207,7 +206,7 @@ of related built-in commands - see Section 3.</p>
 <p><code>f_seek</code>: move to a specified position in a file</p>
 </li>
 <li>
-<p><code>f_rewind</code>: move to the start of the file</p>
+<p><code>f_rewind</code>: move to start of a file</p>
 </li>
 <li>
 <p><code>f_stat</code>: retrieve information about a file</p>
@@ -219,7 +218,7 @@ of related built-in commands - see Section 3.</p>
 <p><code>f_opendir</code>: recall that directories are handled as special cases of files. open a “directory file” for reading, and return a directory handle.</p>
 </li>
 <li>
-<p><code>f_readdir</code>: returns a pointer to a “directory entry” structure representing the next directory entry in the directory file specified.</p>
+<p><code>f_readdir</code>: returns a pointer to a “directory entry” structure representing the directory entry in the directory file specified.</p>
 </li>
 <li>
 <p><code>f_closedir</code>: close an open directory file</p>
@@ -258,14 +257,14 @@ if you wish.  Make sure that your shell supports commands such as echo, ps, etc.
 <p>Create at least a regular user and a super user, and start the user at the appropriate home directory after logging in.</p>
 </li>
 <li>
-<p>Support redirections. You need to support parsing for &lt;, &gt;, and &gt;&gt;. You should already support parsing for &lt; and &gt;. <code>&gt;&gt;</code> appends text to a file.</p>
+<p>Support redirections. You need to support parsing for &gt;, and &gt;&gt;. <code>&gt;&gt;</code> appends text to a file.</p>
 </li>
 <li>
 <p>The following file-system related commands must now be implemented as built-in commands in your shell. You are not allowed to use the Unix-provided ones, not that they will work with your file system anyways.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p><code>ls</code> - lists all the files in the current or specified directory. Support flags -F and -l.</p>
+<p><code>ls</code> - lists all the files in the current or specified directory. Support flags -a and -l.</p>
 </li>
 <li>
 <p><code>chmod</code> - changes the permissions mode of a file. Support absolute mode and symbolic mode.</p>
@@ -286,13 +285,13 @@ if you wish.  Make sure that your shell supports commands such as echo, ps, etc.
 <p><code>cat</code> - displays the content of one or more files to the output.</p>
 </li>
 <li>
-<p><code>more</code> - lists a file a screen at a time</p>
-</li>
-<li>
 <p><code>rm</code> - deletes a file</p>
 </li>
 <li>
-<p><code>mount</code> - mounts a file system at a specified location. Note that it should be possible to format multiple disks and mount them at arbitrary locations in your file system umount unmounts a file system</p>
+<p><code>mv</code> - renames a file or directory</p>
+</li>
+<li>
+<p><code>stat</code> - reports the system information for a file</p>
 </li>
 </ol>
 </div>
@@ -312,6 +311,43 @@ megabytes.</p>
 </div>
 <div class="sect2">
 <h3 id="_testing">Testing</h3>
+<div class="paragraph">
+<p>To initialize a new filesystem, use your format utility</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>$ ./format <disk_name></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command will create a disk containing a boot block, superblock, free space management, and
+initialized root directory. A disk created by format should be passed to your shell to use as the file
+system. When the shell exits, your filesystem should be saved.</p>
+</div>
+<div class="paragraph">
+<p>When the shell loads a filesystem, it should read it into your vnode data structure. The layout of the
+file system specifies how the file is stored on disk. The vode tree is the representation that you can
+use to work with files from your shell.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>$ <strong>./shell <disk_name></strong>
+myshell$> ls
+. .. A.txt B.txt C.txt usr
+myshell$> echo "roses are red" > f1.txt
+myshell$> ls
+. .. A.txt B.txt C.txt f1.txt usr
+$ ./shell
+myshell$> ls
+. ..
+myshell$> mount <disk_name> /mnt
+myshell$> ls
+. .. mnt
+myshell$> cd mnt
+myshell$> ls
+. .. A.txt B.txt C.txt usr</code></pre>
+</div>
+</div>
 <div class="paragraph">
 <p>In addition to commands listed above, make sure your shell can execute commands such as</p>
 </div>
@@ -337,6 +373,60 @@ megabytes.</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>Implementation Tips:</p>
+</div>
+<div class="paragraph">
+<p>Start with your file system design (Due at the end of Lab, April 10th). After
+your decide your design, you should implement <code>format</code> and use it to create an
+empty file system. Your empty file system should only contain a root directory.</p>
+</div>
+<div class="paragraph">
+<p>Implementing your shell and file system in vertical slices, one test-able feature at a time.
+For example, the first thing you can implement is <strong>creating a file</strong>. To start, you would
+implement <code>fopen</code> and <code>fclose</code>, focusing on the ability to create files.
+You should test these functions in their own test program. Then implement <code>cat</code>
+in your new shell to write to this file (include &gt;). Note that you should not use <code>exec</code> to
+call cat. You should use your own <code>cat</code> routine that works with your file
+system.</p>
+</div>
+<div class="paragraph">
+<p>Here are other features you can implement similarly:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Saving your file system to file so it can be loaded again the next time you start your shell (f_mount, f_unmount, mount)</p>
+</li>
+<li>
+<p>Listing a file&#8217;s system status (stat)</p>
+</li>
+<li>
+<p>Editing a file (f_read, f_write, f_seek, f_rewind, &gt;&gt;, cat)</p>
+</li>
+<li>
+<p>Editing permissions (chmod)</p>
+</li>
+<li>
+<p>Listing a directory (ls, f_opendir)</p>
+</li>
+<li>
+<p>Creating a new directory (mkdir, f_createdir)</p>
+</li>
+<li>
+<p>Removing a file or directory (f_unlink)</p>
+</li>
+<li>
+<p>Editing names (mv)</p>
+</li>
+<li>
+<p>Testing bad data (for example, files/directories that do not exist. Implement error codes in your VFS API)</p>
+</li>
+<li>
+<p>Testing other shell commands (should be forked with exec)</p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
@@ -344,7 +434,7 @@ megabytes.</p>
 <h2 id="_grading_rubric">Grading Rubric</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><strong>Assignment rubrics</strong></p>
+<p><strong>Project rubrics</strong></p>
 </div>
 <div class="paragraph">
 <p>Grades are out of 4 points.</p>
@@ -352,7 +442,10 @@ megabytes.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>(4 points) File System</p>
+<p>(3 points) File System</p>
+</li>
+<li>
+<p>(1 points) File System demo and design (Oral Exam)</p>
 </li>
 </ul>
 </div>
@@ -388,14 +481,14 @@ have good style.</p>
 <h2 id="_resubmission">Resubmission</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This assignment (A08) is not eligible for resubmission at the end of the term.</p>
+<p>This project is not eligible for resubmission at the end of the term.</p>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2025-03-31 15:16:21 -0400
+Last updated 2025-04-08 14:51:36 -0400
 </div>
 </div>
 </body>

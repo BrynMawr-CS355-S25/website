@@ -118,7 +118,7 @@
 |*File Systems II* 
 
 * Read: Tanenbaum Chapter 4 
-* link:assts/asst07.html[Assignment 08]: File System, Due Sunday, April 27
+* link:assts/asst08.html[Project]: File System, Due Sunday, April 27
 * Lab April 10
 * link:questions-week12.txt[Written Questions Due April 8th, Be brief]
 

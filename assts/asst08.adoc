@@ -1,10 +1,10 @@
 include::header.adoc[]
 
-:title: Assignment 8: File System
+:title: Final Project: File System
 :Author Initials: ASN
 :Date:    2020-08-15
 :Revision: 0.1
-:ASST: A06
+:ASST: A08
 
 = {title}
 
@@ -15,21 +15,22 @@ The goals for this assignment are:
 * Write your own file system 
 * Design and implement a non-trivial program
 
-NOTE: We will use new starter code: link:[Start Code Link]
+NOTE: We will use new starter code: link:https://classroom.github.com/a/pnwA1hqz[Start Code Link]
 
 = File System
 
-_Assignment by Dianna Xu_
+_Based on the project by Dianna Xu_
 
 In this project, you will implement a file system from scratch. A "disk" in this project is a single
 Unix file that is "formatted" so that it is understandable to your "OS". You can think of such a file
 as a disk image. You must provide a shell that will be able to navigate this file system and execute
 commands that allow a user to perform normal file system related activities. See below for details.
 
-Your file system should have a hierarchical tree structure, support file permissions and mounting.
-You should also provide a separate "format" utility that creates and initializes your disk files. The format program
-should run separately from your shell. This project should be completed in groups of 2 or 3. You
-may base your implementation on previous work from any team member.
+Your file system should have a hierarchical tree structure, support file
+permissions and mounting.  You should also provide a separate "format" utility
+that creates and initializes your disk files. The format program should run
+separately from your shell. You may base your implementation on previous work
+from any team member.
 
 = Overview
 
@@ -74,19 +75,12 @@ the physical layer to store individual file data.
 
 [source]
 ----
-typedef struct {
-    fd_t (*f_open)(vnode_t *vn, const char *filename, int flags);
-    size_t (*f_read)(vnode_t *vn, void *data, size_t size, int num, fd_t fd);
-    ... /* and the rest of the file system library functions */
-} fs_driver_t;
-
 typedef struct vnode {
-    int vnode number;
+    int vnode_number;
     char name[255];
     struct vnode *parent;
     int permissions;
     int type;
-    fs_driver_t *driver;
     union {
         struct unix_fs { /* these structs need to be fleshed out by you */
             int inode;
@@ -95,7 +89,7 @@ typedef struct vnode {
             int fat_ptr;
         } dosfs;
         struct ram_fs {
-            ulong offset;
+            unsigned long offset;
         } ramfs;
     } fs_info; /* file system specific info */
 } vnode_t;
@@ -108,24 +102,27 @@ and designed one without replacing the entire library.
 
 == File System Library Functions
 
+In the files, `vfs.h` and `vfs.c`, implement an API for interacting with your file system. These 
+files will be compiled into a dynamic library, `libvfs.so`.
+
 As part of the VFS you need to create programmer-level library functions to provide access to your
 file system operations. A list of library functions that you should implement has been outlined for
 you. The listed calls are very similar to the equivalent standard ANSI C library functions. Consult
-K&R or Unix man pages for specific semantics that you should emulate. These functions should
-be in a separate file, which you can then choose to build into a shared library if you prefer.
+K&R or Unix man pages for specific semantics that you should emulate. 
+
 Your shell should call the appropriate functions from your library when implementing the list
-of related built-in commands - see Section 3.
+of related built-in commands.
 
 . `f_open`: open the specified file with the specified access (read, write, read/write, append). If the file does not exist, handle accordingly. (rule of thumb: create file if writing/appending, return error if reading is involved). Returns a file handle if successful.
 . `f_read`: read the specified number of bytes from a file handle at the current position. Returns the number of bytes read, or an error.
 . `f_write`: write some bytes to a file handle at the current position. Returns the number of bytes written, or an error.
 . `f_close`: close a file handle
 . `f_seek`: move to a specified position in a file
-. `f_rewind`: move to the start of the file
+. `f_rewind`: move to start of a file
 . `f_stat`: retrieve information about a file
 . `f_remove`: delete a file
 . `f_opendir`: recall that directories are handled as special cases of files. open a “directory file” for reading, and return a directory handle.
-. `f_readdir`: returns a pointer to a “directory entry” structure representing the next directory entry in the directory file specified.
+. `f_readdir`: returns a pointer to a “directory entry” structure representing the directory entry in the directory file specified.
 . `f_closedir`: close an open directory file
 . `f_mkdir`: make a new directory at the specified location
 . `f_rmdir`: delete a specified directory. Be sure to remove entire contents and the contents of all subdirectorys from the filesystem. Do NOT simply remove pointer to directory.
@@ -141,18 +138,18 @@ if you wish.  Make sure that your shell supports commands such as echo, ps, etc.
 . On start-up, the shell should look (in the same directory) for a file called "DISK" where your file system is located. If it is not found, please print a message asking the user to run the format command to make one. For more details on format, see Section 4.
 . Once your shell has found the file system, it should mount it at the root directory and display a log-in prompt.
 . Create at least a regular user and a super user, and start the user at the appropriate home directory after logging in.
-. Support redirections. You need to support parsing for <, >, and >>. You should already support parsing for < and >. `>>` appends text to a file. 
+. Support redirections. You need to support parsing for >, and >>. `>>` appends text to a file. 
 . The following file-system related commands must now be implemented as built-in commands in your shell. You are not allowed to use the Unix-provided ones, not that they will work with your file system anyways.
-.. `ls` - lists all the files in the current or specified directory. Support flags -F and -l.
+.. `ls` - lists all the files in the current or specified directory. Support flags -a and -l.
 .. `chmod` - changes the permissions mode of a file. Support absolute mode and symbolic mode.
 .. `mkdir` - creates a directory
 .. `rmdir` - removes a directory
 .. `cd` - changes the current working directory according to the specified path, or to the home directory if no argument is given. Support . and ..
 .. `pwd` - prints the current working directory
 .. `cat` - displays the content of one or more files to the output.
-.. `more` - lists a file a screen at a time
 .. `rm` - deletes a file
-.. `mount` - mounts a file system at a specified location. Note that it should be possible to format multiple disks and mount them at arbitrary locations in your file system umount unmounts a file system
+.. `mv` - renames a file or directory
+.. `stat` - reports the system information for a file
 
 == Format
 
@@ -164,6 +161,40 @@ megabytes.
 
 == Testing
 
+To initialize a new filesystem, use your format utility
+
+[source, subs="quotes"]
+----
+$ ./format <disk_name>
+----
+
+This command will create a disk containing a boot block, superblock, free space management, and
+initialized root directory. A disk created by format should be passed to your shell to use as the file 
+system. When the shell exits, your filesystem should be saved. 
+
+When the shell loads a filesystem, it should read it into your vnode data structure. The layout of the 
+file system specifies how the file is stored on disk. The vode tree is the representation that you can 
+use to work with files from your shell.
+
+[source, subs="quotes"]
+----
+$ **./shell <disk_name>**
+myshell$> ls
+. .. A.txt B.txt C.txt usr
+myshell$> echo "roses are red" > f1.txt
+myshell$> ls
+. .. A.txt B.txt C.txt f1.txt usr
+$ ./shell
+myshell$> ls
+. ..
+myshell$> mount <disk_name> /mnt
+myshell$> ls
+. .. mnt
+myshell$> cd mnt
+myshell$> ls
+. .. A.txt B.txt C.txt usr
+----
+
 In addition to commands listed above, make sure your shell can execute commands such as
 
 * echo "roses are red" > f1.txt
@@ -173,13 +204,41 @@ In addition to commands listed above, make sure your shell can execute commands 
 * ls > f4.txt
 * ps > f5.txt
 
+Implementation Tips:
+
+Start with your file system design (Due at the end of Lab, April 10th). After 
+your decide your design, you should implement `format` and use it to create an 
+empty file system. Your empty file system should only contain a root directory.
+
+Implementing your shell and file system in vertical slices, one test-able feature at a time. 
+For example, the first thing you can implement is *creating a file*. To start, you would 
+implement `fopen` and `fclose`, focusing on the ability to create files. 
+You should test these functions in their own test program. Then implement `cat`
+in your new shell to write to this file (include >). Note that you should not use `exec` to
+call cat. You should use your own `cat` routine that works with your file
+system.
+
+Here are other features you can implement similarly:
+
+* Saving your file system to file so it can be loaded again the next time you start your shell (f_mount, f_unmount, mount)
+* Listing a file's system status (stat)
+* Editing a file (f_read, f_write, f_seek, f_rewind, >>, cat)
+* Editing permissions (chmod)
+* Listing a directory (ls, f_opendir)
+* Creating a new directory (mkdir, f_createdir)
+* Removing a file or directory (f_unlink)
+* Editing names (mv)
+* Testing bad data (for example, files/directories that do not exist. Implement error codes in your VFS API)
+* Testing other shell commands (should be forked with exec)
+
 = Grading Rubric
 
-*Assignment rubrics*
+*Project rubrics*
 
 Grades are out of 4 points.
 
-* (4 points) File System
+* (3 points) File System
+* (1 points) File System demo and design (Oral Exam)
 
 *Code rubrics*
 
@@ -194,4 +253,4 @@ have good style.
 
 = Resubmission
 
-This assignment (A08) is not eligible for resubmission at the end of the term.
+This project is not eligible for resubmission at the end of the term.

@@ -16,8 +16,8 @@ Instructor: link:https://www.cs.brynmawr.edu/~alinen[Aline Normoyle]
 [.anns]
 
 * Welcome!
-* link:labs/lab06.html[Lab 06: Inodes you're busy] due Thursday, April 3
-* link:assts/asst07.html[Assignment 07: The Defragmentor] due Sunday April 6. 
+* link:labs/lab07.html[Lab 07: File System Design] due Thursday, April 10
+* link:assts/asst08.html[Project: File System] due Sunday April 27. 
 * link:questions-week12.txt[Written Questions Due April 8th]
 
 == Course Info
