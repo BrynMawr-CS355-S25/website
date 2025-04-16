@@ -168,9 +168,8 @@ You are heavily enouraged to test beyond this!
 Grades are out of 4 points.
 
 * (4 points) Memory Manager
-** (1.5 points) Memory API, valgrind
-** (0.5 points) Coalesce
-** (1.0 points) Performance
+** (2.3 points) Memory API, Coalesce, valgrind
+** (0.7 points) Performance
 ** (0.7 points) Test Suite
 ** (0.3 points) style and header comment
 
