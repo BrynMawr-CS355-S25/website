@@ -119,33 +119,33 @@
 
 * Read: Tanenbaum Chapter 4 
 * link:assts/asst08.html[Project]: File System, Due Sunday, April 27
-* Lab April 10
+* link:labs/lab07.html[Lab April 10]
 * link:questions-week12.txt[Written Questions Due April 8th, Be brief]
 
 //-----------------------------
 |13
 |April 15, 17 anchor:week13[]
-|*I/O and disks* 
+|*I/O* 
 
-* Read: Tanenbaum Chapter 7 and 8 
-* Lab April 17
-* Written Questions (Due April 15 in class, Be Brief): Tanenbaum 
+* Read: Tanenbaum Sections 5.1-5.3, 5.6
+* Lab April 17: File System checkins: format, writing files
 
 //-----------------------------
 |14
 |April 22, 24 anchor:week14[]
-|*Multiple Processors, Virtualization and the Cloud* 
+|*Security and Protection* 
 
-* Read: Tanenbaum Chapter 9 and 10 
-* Lab April 24
+* Read: Tanenbaum Chapter 9
+* Lab April 24: File System checkins: simple shell integration
 * Written Questions (Due April 22 in class, Be Brief): Tanenbaum 
 
 //-----------------------------
 |15
 |April 29, May 1 anchor:week15[]
-|*Security and Protection* 
+|*Review and Midterm* 
 
-* Exam 02
+* May 2, Exam 02, link:studyguide2.html[Study Guide]
+* link:questions-week15.txt[Written Questions Due April 29th, Be brief]
 * *No Lab May 1*
 
 |===
