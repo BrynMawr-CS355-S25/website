@@ -16,9 +16,10 @@ Instructor: link:https://www.cs.brynmawr.edu/~alinen[Aline Normoyle]
 [.anns]
 
 * Welcome!
-* link:labs/lab07.html[Lab 07: File System Design] due Thursday, April 10
 * link:assts/asst08.html[Project: File System] due Sunday April 27. 
-* link:questions-week12.txt[Written Questions Due April 8th]
+* link:questions-week15.txt[Written Questions Due April 29th - TBD]
+* Assignment resubmissions are due Sunday May 4.
+* File System Demo and Code Review Meetings (30 min), May 5 - May 9 link:[Sign-up Sheet TBD]
 
 == Course Info
 
