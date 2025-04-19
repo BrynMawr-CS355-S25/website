@@ -239,8 +239,22 @@ Here are other features you can implement similarly:
 
 Grades are out of 4 points.
 
-* (3 points) File System
+Your grade will be based on fully-functional feature sets. Not all
+feature sets must be implemented to receive a good grade. Focus on implementing 
+complete demos that are well-defined and well-encapsulated, based on the categories 
+defined below. 
+
+* (3 points) File System 
+** Format disk, load/save disk
+** Basic shell commands: ls, cat, touch, mkdir, rmdir, pwd, cd, mv, rm, stat
+** Advanced shell commands: mount, umount
+** Shell redirection: writing and appending to files from the shell
+** Errors: supporting bad inputs from the user in your shell. reporting errors from your VFS functions.
+** VFS implementation: unit tests that show that your VFS works
+** Supporting files larger than 1 block. Checking for limits when creating files and directories.
+** Supporting and enforcing permissions for files and file descriptors. Implementing chmod.
 * (1 points) File System demo and design (Oral Exam)
+** Your grade will be based on your ability to demonstrate several working features of your file system and describe how they work.
 
 *Code rubrics*
 
