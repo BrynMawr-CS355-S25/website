@@ -181,8 +181,11 @@ files will be compiled into a dynamic library, <code>libvfs.so</code>.</p>
 <div class="paragraph">
 <p>As part of the VFS you need to create programmer-level library functions to provide access to your
 file system operations. A list of library functions that you should implement has been outlined for
-you. The listed calls are very similar to the equivalent standard ANSI C library functions. Consult
-K&amp;R or Unix man pages for specific semantics that you should emulate.</p>
+you. The listed calls are very similar to the equivalent standard ANSI C library functions.</p>
+</div>
+<div class="paragraph">
+<p><a href="asst08-supplement.html">Consult the specification for specific semantics that you should emulate. This
+document also includes a tutorial to help you get started</a>.</p>
 </div>
 <div class="paragraph">
 <p>Your shell should call the appropriate functions from your library when implementing the list
@@ -277,6 +280,9 @@ as a starting point.  Make sure that your shell supports commands such as echo, 
 </li>
 <li>
 <p><code>pwd</code> - prints the current working directory</p>
+</li>
+<li>
+<p><code>touch</code> - creates an empty file</p>
 </li>
 <li>
 <p><code>cat</code> - displays the content of one or more files to the output.</p>
@@ -485,7 +491,7 @@ have good style.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2025-04-08 15:06:46 -0400
+Last updated 2025-04-19 08:22:01 -0400
 </div>
 </div>
 </body>
