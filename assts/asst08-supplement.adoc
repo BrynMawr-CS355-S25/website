@@ -123,7 +123,7 @@ Your implementation of write should also update the underlying file system. For 
 Goals:
 
 * Read in the DISK you wrote out
-* Read an existing file using `f_open`, `f_read`, and `f_close`
+* Read an existing file using `f_open`, `f_stat`, `f_read`, and `f_close`
 
 [source]
 ----
@@ -133,13 +133,21 @@ int main()
 
   vnode_t* node = find(fs_root, "newfile.txt");
 
-  char data[64];
+  vstat_t stats;
+  f_stat(node, 0, &stats);
+  int size = stats.st_size;
+
+  char* contents = (char*) malloc(size);
   vfd_t fd = f_open(node, "", O_RDONLY);
-  size_t size = f_read(node, data, 64, 1, fd);
-  assert(size == 64);
+  size_t rsize = f_read(node, contents, size, 1, fd);
+  if (rsize != (unsigned int) size)
+  {
+    printf("Error reading file.\n");
+  }
   f_close(node, fd);
-  
-  printf("%s\n", data);
+  printf("%s", contents);
+  free(contents);
+
   cleanup_fs();
   return 0;
 }

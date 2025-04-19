@@ -266,7 +266,7 @@ int main()
 <p>Read in the DISK you wrote out</p>
 </li>
 <li>
-<p>Read an existing file using <code>f_open</code>, <code>f_read</code>, and <code>f_close</code></p>
+<p>Read an existing file using <code>f_open</code>, <code>f_stat</code>, <code>f_read</code>, and <code>f_close</code></p>
 </li>
 </ul>
 </div>
@@ -278,13 +278,21 @@ int main()
 
   vnode_t* node = find(fs_root, "newfile.txt");
 
-  char data[64];
-  vfd_t fd = f_open(node, "", O_RDONLY);
-  size_t size = f_read(node, data, 64, 1, fd);
-  assert(size == 64);
-  f_close(node, fd);
+  vstat_t stats;
+  f_stat(node, 0, &amp;stats);
+  int size = stats.st_size;
 
-  printf("%s\n", data);
+  char* contents = (char*) malloc(size);
+  vfd_t fd = f_open(node, "", O_RDONLY);
+  size_t rsize = f_read(node, contents, size, 1, fd);
+  if (rsize != (unsigned int) size)
+  {
+    printf("Error reading file.\n");
+  }
+  f_close(node, fd);
+  printf("%s", contents);
+  free(contents);
+
   cleanup_fs();
   return 0;
 }</code></pre>
@@ -1098,7 +1106,7 @@ vnode must be a directory.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2025-04-19 08:36:33 -0400
+Last updated 2025-04-19 10:42:56 -0400
 </div>
 </div>
 </body>
