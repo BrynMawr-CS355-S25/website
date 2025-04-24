@@ -137,7 +137,7 @@
 
 * Read: Tanenbaum Chapter 9
 * Lab April 24: File System checkins: simple shell integration
-* Written Questions (Due April 22 in class, Be Brief): Tanenbaum 
+//* Written Questions (Due April 22 in class, Be Brief): Tanenbaum 
 
 //-----------------------------
 |15
@@ -145,7 +145,7 @@
 |*Review and Midterm* 
 
 * May 2, Exam 02, link:studyguide2.html[Study Guide]
-* link:questions-week15.txt[Written Questions Due April 29th, Be brief]
+//* link:questions-week15.txt[Written Questions Due April 29th, Be brief]
 * *No Lab May 1*
 
 |===
