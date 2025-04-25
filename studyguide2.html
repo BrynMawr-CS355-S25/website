@@ -237,6 +237,29 @@ struct m* x = &amp;data;
 x+=2;</pre>
 </div>
 </div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Write code that reads in a binary file with the following specification:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The first 4 bytes is an integer that contains the size of the file</p>
+</li>
+<li>
+<p>The second 16 bytes is a character field containing the Author</p>
+</li>
+<li>
+<p>The next three values are unsigned integers that contain a month, day, and year</p>
+</li>
+<li>
+<p>The remaining N bytes store textural data, terminated with the null character.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_memory">Memory</h3>
@@ -258,20 +281,195 @@ x+=2;</pre>
 <p>How does the OS abstract memory to processes? How do these abstractions aid users?</p>
 </li>
 <li>
-<p>What is a page?</p>
-</li>
-<li>
 <p>Name some advantages and disadvantages of a simple process memory model in which the entire process is loaded contiguously in memory?</p>
 </li>
 <li>
-<p>Define virtual versus physical memory.</p>
+<p>What is virtual memory? How are virtual addresses mapped to physical addresses?</p>
+</li>
+<li>
+<p>Suppose we are using a 10K blocksize. Give the bitmap that represents the free blocks in memory.</p>
+<div class="imageblock">
+<div class="content">
+<img src="img/memory.png" alt="memory" width="100px">
+</div>
+</div>
+</li>
+<li>
+<p>Suppose we are using a 10K blocksize. Give the linked list that represents the free blocks in memory.  Assume each node in the linked list contains the process ID, or H if it a hole, a start location, a size, and a pointer to the next record.</p>
+<div class="imageblock">
+<div class="content">
+<img src="img/memory.png" alt="memory" width="100px">
+</div>
+</div>
+</li>
+<li>
+<p>Fill in the following figure with the bitmap and linked list that corresponds to the given memory block.</p>
+<div class="imageblock">
+<div class="content">
+<img src="img/memory-free.png" alt="memory free" width="600px">
+</div>
+</div>
+</li>
+<li>
+<p>Suppose we have processes in memory as follows. Suppose a new process requests 15K, which hole should we use if we were using a strategy of best fit, worst fit, and first fit?</p>
+<div class="imageblock">
+<div class="content">
+<img src="img/memory-free.png" alt="memory free" width="600px">
+</div>
+</div>
+</li>
+<li>
+<p>Suppose we are using bitmaps to manage free space for a 1 GB disk. How big must the bitmap be if we use 4 KB blocks? What about if we use 16 KB blocks? What is the disadvantage of using larger blocks?</p>
+</li>
+<li>
+<p>Suppose we are using linked lists to manage free space for a 1 GB disk. How much additional space do we need if we use 4 KB blocks? What about if we use 16 KB blocks?</p>
+</li>
+<li>
+<p>What is the memory mapping unit (MMU)?</p>
+</li>
+<li>
+<p>What is a page? What is a page frame?</p>
+</li>
+<li>
+<p>What is paging? What is a page fault?</p>
+</li>
+<li>
+<p>Suppose we have the following specifications: 16-bit addresses, 32 KB of physical memory, and 4KB page sizes.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What is the possible range of virtual addresses?</p>
+</li>
+<li>
+<p>How many pages do we have?</p>
+</li>
+<li>
+<p>How many page frames do we have?</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Compute physical addresses for the virtual addresses using the commands below.</p>
+<div class="imageblock">
+<div class="content">
+<img src="img/paging.png" alt="paging" width="600px">
+</div>
+</div>
+</li>
+<li>
+<p>Suppose we have 4 KB pages 16-bit addresses. Also suppose our page table looks as follows. Convert the address 0x2004.</p>
+<div class="imageblock">
+<div class="content">
+<img src="img/paging-2.png" alt="paging 2" width="200px">
+</div>
+</div>
+</li>
+<li>
+<p>What is the translation lookaside buffer? What is its purpose?</p>
+</li>
+<li>
+<p>Suppose we have 32-bit addresses, 4 KB page sizes, and the a two-level page table. The first 10 bits are an index into the first page table. The next 10 bits are an index into the second page table. Compute the indices into the page tables and offset for the following addresses:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>0x00403004</p>
+</li>
+<li>
+<p>0x00c0500a</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>What is the advantage of multi-level page tables? What about inverted page tables?</p>
+</li>
+<li>
+<p>What would the optimal page replacement algorithm be in a perfect world?</p>
 </li>
 </ol>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_files">Files</h3>
-
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>What is a file?</p>
+</li>
+<li>
+<p>What is a file system?</p>
+</li>
+<li>
+<p>Give some examples of file attributes?</p>
+</li>
+<li>
+<p>Give two different designs for storing file attributes in a file system.</p>
+</li>
+<li>
+<p>Give two possible designs for managing free space within a file system.</p>
+</li>
+<li>
+<p>How does the block size for files possibly affect fragmentation?</p>
+</li>
+<li>
+<p>What is the root directory? the current working directory?</p>
+</li>
+<li>
+<p>What is the difference between absolute and relative paths?</p>
+</li>
+<li>
+<p>Give a possible file system design for a system that has a single-level directory system.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Explain how multiple users could be supported in a single-level file system.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>What is a symbolic link?</p>
+</li>
+<li>
+<p>Describe a possible file system design that supports symbolic links.</p>
+</li>
+<li>
+<p>Describe the process of booting a computer.</p>
+</li>
+<li>
+<p>What is the Master Boot Record (MBR)</p>
+</li>
+<li>
+<p>What is a partition?</p>
+</li>
+<li>
+<p>Define internal versus external fragmentation.</p>
+</li>
+<li>
+<p>List 4 goals of file system design.</p>
+</li>
+<li>
+<p>Consider the following set of files: A has 2 blocks. B has 5 blocks. C has 1 block. Assume they are stored on a system with 4 KB block sizes. Draw how we would store the files</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>using contiguous allocation</p>
+</li>
+<li>
+<p>using linked lists having nodes stored with each block</p>
+</li>
+<li>
+<p>using a file allocation table (FAT)</p>
+</li>
+<li>
+<p>using inodes</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_io">IO</h3>

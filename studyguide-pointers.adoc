@@ -91,3 +91,9 @@ struct m {
 struct m* x = &data; 
 x+=2; 
 ----
+. Write code that reads in a binary file with the following specification:
+* The first 4 bytes is an integer that contains the size of the file
+* The second 16 bytes is a character field containing the Author
+* The next three values are unsigned integers that contain a month, day, and year
+* The remaining N bytes store textural data, terminated with the null character.
+
