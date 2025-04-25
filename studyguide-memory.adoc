@@ -1,0 +1,8 @@
+. What is the memory hierarchy and how does it aid performance?
+. Name 3 types of secondary storage.
+. Name 3 types of primary storage.
+. How do primary storage and secondary storage differ in terms of their characteristics?
+. How does the OS abstract memory to processes? How do these abstractions aid users?
+. What is a page?
+. Name some advantages and disadvantages of a simple process memory model in which the entire process is loaded contiguously in memory?
+. Define virtual versus physical memory.

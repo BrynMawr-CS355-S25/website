@@ -15,10 +15,14 @@
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
 <li><a href="#_study_guide_os_exam_ii">Study Guide: OS Exam II</a></li>
-<li><a href="#_practice_questions_short_answer">Practice questions: Short Answer</a>
-<ul class="sectlevel2">
 <li><a href="#_tanenbaum">Tanenbaum</a></li>
-<li><a href="#_additional_practice">Additional practice</a></li>
+<li><a href="#_additional_practice">Additional practice</a>
+<ul class="sectlevel2">
+<li><a href="#_programming_with_pointers">Programming with pointers</a></li>
+<li><a href="#_memory">Memory</a></li>
+<li><a href="#_files">Files</a></li>
+<li><a href="#_io">IO</a></li>
+<li><a href="#_security">Security</a></li>
 </ul>
 </li>
 </ul>
@@ -37,27 +41,244 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Tanenbaum Chapter 3</p>
+<p>Tanenbaum Chapters 3,4,5,9</p>
+</li>
+<li>
+<p>Programming with pointer arithmetic; Working with binary files and formats.</p>
+</li>
+<li>
+<p>Memory: Strategies for loading processes into memory, TLB, virtual memory, paging algorithms</p>
+</li>
+<li>
+<p>Files: File system features, such as backups, consistency, and journaling. Methods for storing files/directories and managing free space (inodes, FAT tables, etc)</p>
+</li>
+<li>
+<p>I/O: I/O software layers, drivers, disks, keyboard/mouse input, windows systems</p>
+</li>
+<li>
+<p>Security: Terminology, buffer exploits, basic cryptography, malware, defenses</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_practice_questions_short_answer">Practice questions: Short Answer</h2>
+<h2 id="_tanenbaum">Tanenbaum</h2>
 <div class="sectionbody">
-<div class="sect2">
-<h3 id="_tanenbaum">Tanenbaum</h3>
 <div class="ulist">
 <ul>
 <li>
-<p>Chapter 1: 15, 27</p>
+<p>Chapter 3: 4, 5, 6, 7, 11, 15, 17, 20, 28, 30, 33, 36, 38, 47</p>
+</li>
+<li>
+<p>Chapter 4: 20, 21, 24, 28, 30, 40, 41</p>
+</li>
+<li>
+<p>Chapter 5: 5, 10, 13, 14, 16</p>
+</li>
+<li>
+<p>Chapter 9: 1, 6, 7, 8, 9, 19, 28, 29, 38, 39, 40, 49, 50</p>
 </li>
 </ul>
 </div>
 </div>
+</div>
+<div class="sect1">
+<h2 id="_additional_practice">Additional practice</h2>
+<div class="sectionbody">
 <div class="sect2">
-<h3 id="_additional_practice">Additional practice</h3>
+<h3 id="_programming_with_pointers">Programming with pointers</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>For each of the following variables, say whether its a pointer or not</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>char buffer[128];</code></p>
+</li>
+<li>
+<p><code>char* a = NULL;</code></p>
+</li>
+<li>
+<p><code>const char* message = "hello";</code></p>
+</li>
+<li>
+<p><code>char a;</code></p>
+</li>
+<li>
+<p><code>struct mystery* m = malloc(sizeof(struct mystery));</code></p>
+</li>
+<li>
+<p><code>struct mystery** m = malloc(sizeof(struct mystery*)*10);</code></p>
+</li>
+<li>
+<p><code>argv[0]</code> where argv is a list of command line arguments passed to main</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>In the following code, indicate which casts from void* are safe.</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>#include &lt;stdio.h&gt;
+
+int main()
+{
+  void* generic = NULL;
+  int a = 3;
+  double b = 4.5;
+  generic = &amp;a;
+  generic = &amp;b;
+
+  printf("test %f\n", *generic);
+  double* double_ptr = (double *) generic;
+  printf("test %f\n", *double_ptr);
+
+  int* int_ptr = (int *) generic;
+  printf("test %d\n", *int_ptr);
+
+  generic = &amp;a;
+
+  double* double_ptr = (double *) generic;
+  printf("test %f\n", *double_ptr);
+
+  int* int_ptr = (int *) generic;
+  printf("test %d\n", *int_ptr);
+
+  return 0;
+}</pre>
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Draw the stack for the following code.</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>int main()
+{
+  char vals[3] = {'h','I','\0'};
+  char* valptr = vals;
+  char v1 = vals[2];
+  char* v1ptr = valptr + 2;
+  char v2 = *v1ptr;
+  printf("%c %c\n", v1, v2);
+  // Draw stack here
+  for (int i = 0; i &lt; 3; i++) {
+    printf("%c\n", vals[i]);
+  }
+  for (char* ptr = vals; ptr &lt; vals+3; ptr++) {
+    printf("%p %c\n", ptr, *ptr);
+  }
+}</pre>
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Draw the stack diagram for the following code</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>struct chunk {
+  int size;
+  struct chunk *next;
+};
+int main() {
+  int size = sizeof(int) * 5;
+  void *memory = malloc(size + sizeof(struct chunk));
+  if (memory == NULL) {
+    return 1;
+  }
+  struct chunk *cnk = (struct chunk*) memory;
+  cnk-&gt;size = size;
+  void* data = (void*) (cnk + 1);
+  int* array = (int*) data;
+  for (int i = 0; i &lt; 5; i++) {
+    array[i] = i;
+  }</pre>
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Suppose the address of x is 0x4c568000. For each of the following expressions, give the new address of x;</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>int* x = &amp;a; x++;</code></p>
+</li>
+<li>
+<p>`char* x = &amp;c; x--
+*</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>struct m {
+    int q;
+    char buff[4];
+};
+struct m* x = &amp;data;
+x+=2;</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_memory">Memory</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>What is the memory hierarchy and how does it aid performance?</p>
+</li>
+<li>
+<p>Name 3 types of secondary storage.</p>
+</li>
+<li>
+<p>Name 3 types of primary storage.</p>
+</li>
+<li>
+<p>How do primary storage and secondary storage differ in terms of their characteristics?</p>
+</li>
+<li>
+<p>How does the OS abstract memory to processes? How do these abstractions aid users?</p>
+</li>
+<li>
+<p>What is a page?</p>
+</li>
+<li>
+<p>Name some advantages and disadvantages of a simple process memory model in which the entire process is loaded contiguously in memory?</p>
+</li>
+<li>
+<p>Define virtual versus physical memory.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_files">Files</h3>
+
+</div>
+<div class="sect2">
+<h3 id="_io">IO</h3>
+
+</div>
+<div class="sect2">
+<h3 id="_security">Security</h3>
 
 </div>
 </div>
@@ -65,7 +286,7 @@
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2025-03-02 14:32:21 -0500
+Last updated 2025-04-25 13:37:04 -0400
 </div>
 </div>
 </body>
