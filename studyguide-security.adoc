@@ -14,8 +14,8 @@
 . What is a protection domain?
 . In the context of protection domains, give an example of an object, a domain, and a right.
 . Consider the following protection domain.
-image::ProtectionDomain.png[width=600px]
 +
+image::ProtectionDomain.png[width=600px]
 * Represent the protection domains above as protection matrix
 * Represent the protection domains above using an Access Control List
 * Represent the protection domains above using Capabilities. Assume each user is running a single process with the same file needs as the diagram.

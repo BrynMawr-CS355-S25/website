@@ -564,12 +564,165 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li>
 <p>What would the optimal page replacement algorithm be in a perfect world?</p>
 </li>
+<li>
+<p>In the NRU algorithm, list the 4 categories of pages.</p>
+</li>
+<li>
+<p>Suppose we are using NRU and we execute the following sequence of instructions.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>mov 0x0, reg
+mov $0x19, 0x2000
+clock interrupt
+mov reg, 0x90a3
+mov 0x5014, reg</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Suppose we have 16 pages of virtual memory and 8 pages of physical memory (4 KB page sizes). Which frames will each instruction reference?</p>
+</li>
+<li>
+<p>How will the R and M flags change if all are set the 0 to start?</p>
+</li>
+<li>
+<p>What NRU class is each page in after executing these instructions.</p>
+</li>
+<li>
+<p>What page would be removed by the NRU algorithm?</p>
+</li>
+<li>
+<p>What page would be removed by the FIFO algorithm?</p>
+</li>
+<li>
+<p>What page would be removed by the Second chance algorithm?</p>
+</li>
+<li>
+<p>What page would be removed by the clock algorithm?</p>
+</li>
+<li>
+<p>Suppose we are using LRU. What would the aged values be for each page?</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>What is the primary limitation of the NFU algorithm?</p>
+</li>
+<li>
+<p>What is the primary limitation of the FIFO algorithm?</p>
+</li>
+<li>
+<p>What is the primary limitation of the NRU algorithm?</p>
+</li>
+<li>
+<p>What is demand paging and why is it efficient?</p>
+</li>
+<li>
+<p>What is thrashing?</p>
+</li>
+<li>
+<p>What is the working set?</p>
+</li>
+<li>
+<p>What does the function w(k,t) represent? Why is w(k,t) monotonically nondecreasing?</p>
+</li>
+<li>
+<p>Suppose we are using the working set page replacement algorithm. tau = 800 and the current virtual time is 2204.</p>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 40%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Page</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Time of Last use</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">R Bit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">M Bit</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2084</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2003</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1980</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1213</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2014</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2020</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2032</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1620</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p>Which pages are in the current working set?</p>
+</li>
+<li>
+<p>Which pages would be removed from the page table?</p>
+</li>
+<li>
+<p>Which pages would have its time of last use updated?</p>
+</li>
+<li>
+<p>Suppose we are using the WSClock algorithm and the starting page is page 3. What page will be replaced?</p>
+</li>
+<li>
+<p>Suppose we are using the WSClock algorithm and the starting page is page 3. How will the table change on a clock interrupt?</p>
+</li>
+<li>
+<p>Suppose we are using the WSClock algorithm and the starting page is page 3. How will the table change on a clock interrupt?</p>
+</li>
+</ul>
+</div>
+</li>
 </ol>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2025-04-25 16:19:47 -0400
+Last updated 2025-04-28 16:52:57 -0400
 </div>
 </div>
 </body>

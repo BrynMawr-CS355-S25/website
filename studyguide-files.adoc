@@ -34,8 +34,8 @@ $ touch 6.txt
 * Define a struct type that represents the entries inside a directory. Make sure that all data types are properly byte-aligned.
 * Write pseudocode that tests whether a directory entry is valid of not. 
 * Write pseudocode that tests whether a directory entry corresponds to a file or directory.
-* Draw the contents of directory B.
-* Describe how you would redesign the directory entries in order to support variable-sized filenames? 
+* Draw the contents of directory B as a table.
+* Describe how you would redesign the directory entries in order to support variable-sized filenames. 
 . Suppose we are using inodes. Describe the steps needed to lookup the file with path `/usr/ast/mbox`
 . Suppose we are using FAT. Describe the steps needed to lookup the file with path `/usr/ast/mbox`
 . Suppose we are using inodes. Describe the steps needed to lookup the file with path `../ast/mbox`
@@ -180,6 +180,7 @@ $ touch 6.txt
 * Draw the contents of the first 10 FAT entries  
 * Draw the contents of the root directory block. Assume the blocks stores the file names and FAT table IDs. 
 . Consider the CP/M file system which stored all files under a single directory. Sketch a program that would format a disk capable of holding 100 files.
++
 image::CPM.png[width=600px]
 . Suppose a FAT table has 64 entries and the blocksize is 4 KB. What is the maximum number of bytes we can store? What is the maximum possible number of files?
 . How does the ext2 system initialize files to avoid external fragmentation?
