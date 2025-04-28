@@ -1,10 +1,10 @@
-. What is the memory hierarchy and how does it aid performance?
+. Describe the levels of the memory hierarchy. 
 . Name 3 types of secondary storage.
 . Name 3 types of primary storage.
 . How do primary storage and secondary storage differ in terms of their characteristics?
-. How does the OS abstract memory to processes? How do these abstractions aid users?
-. Name some advantages and disadvantages of a simple process memory model in which the entire process is loaded contiguously in memory?
-. What is virtual memory? How are virtual addresses mapped to physical addresses? 
+. Give two disadvantages of a simple process memory model in which the entire process is loaded contiguously in memory?
+. What is virtual memory? 
+. List two advantages of decoupling the process address space from the machine's physical memory.
 . Suppose we are using a 10K blocksize. Give the bitmap that represents the free blocks in memory. 
 +
 image::memory.png[width=100px]
@@ -46,7 +46,7 @@ image::paging-2.png[width=200px]
 . What is the advantage of multi-level page tables? What about inverted page tables?
 . What would the optimal page replacement algorithm be in a perfect world?
 . In the NRU algorithm, list the 4 categories of pages.  
-. Suppose we are using NRU and we execute the following sequence of instructions. 
+. Suppose we execute the following sequence of instructions. 
 +
 [source]
 ----
