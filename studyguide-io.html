@@ -440,11 +440,148 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="header">
 </div>
 <div id="content">
-
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Give an example of a block device</p>
+</li>
+<li>
+<p>Give an example of a character device</p>
+</li>
+<li>
+<p>What is the difference between block and character devices?</p>
+</li>
+<li>
+<p>Name the five I/O software layers found in UNIX systems.</p>
+</li>
+<li>
+<p>Why is I/O organized into layers, e.g. what is the advantage of this approach?</p>
+</li>
+<li>
+<p>Name the two components of device controllers</p>
+</li>
+<li>
+<p>Name two types of registers that typically come with hardware devices.</p>
+</li>
+<li>
+<p>Name two approaches for communicating with devices from the OS.</p>
+</li>
+<li>
+<p>What is an I/O port?</p>
+</li>
+<li>
+<p>What is an I/O space?</p>
+</li>
+<li>
+<p>What is the advantage of using memory-mapped I/O over supporting separate spaces for memory and devices?</p>
+</li>
+<li>
+<p>What are some challenges/disadvantages of using memory-mapped I/O?</p>
+</li>
+<li>
+<p>How does the OS communicate with devices when using a separate space for memory and devices?</p>
+</li>
+<li>
+<p>How does the OS communicate with devices when using memory-mapped I/O?</p>
+</li>
+<li>
+<p>What is the purpose of Direct Memory Access (DMA)?</p>
+</li>
+<li>
+<p>In the following diagram, show how the CPU can use a DMA controller to read data from disk storage.
+image::DMA.jpg[width=600px]</p>
+</li>
+<li>
+<p>List four steps that happen when an interrupt occurs due to a device event.</p>
+</li>
+<li>
+<p>List three approaches to I/O handling</p>
+</li>
+<li>
+<p>Suppose we want to read N bytes from a device. Briefly describe how the following code accomplishes this. What approach is the code taking to event handling?</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>for (i=0; i&lt;N; i++) {
+  while (*status != READY) ;
+  *data = buffer[i];
+}</pre>
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>What is a device driver?</p>
+</li>
+<li>
+<p>What is the goal of the device-independent software layer?</p>
+</li>
+<li>
+<p>Name three different techniques that enable different devices to be accessed in a similar way.</p>
+</li>
+<li>
+<p>What is buffering? How does buffering relate to I/O?</p>
+</li>
+<li>
+<p>What is spooling? Give an example of a device that performs spooling.</p>
+</li>
+<li>
+<p>Consider the five layers of the I/O system. What is the primary functions of the</p>
+<div class="ulist">
+<ul>
+<li>
+<p>user process layer?</p>
+</li>
+<li>
+<p>device-independent software layer?</p>
+</li>
+<li>
+<p>device drivers?</p>
+</li>
+<li>
+<p>interrupt handlers?</p>
+</li>
+<li>
+<p>hardware?</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Why is device independence an important principle of I/O programming?</p>
+</li>
+<li>
+<p>Why is handling errors as close to the hardware as possible a principle of I/O Programming?</p>
+</li>
+<li>
+<p>Give an example of how hardware can handle errors without notifying the user.</p>
+</li>
+<li>
+<p>Give an example of a hardware error that requires reporting an error to the user.</p>
+</li>
+<li>
+<p>Give an example of how names are used to provide device-independence on UNIX systems.</p>
+</li>
+<li>
+<p>What is the difference between synchronous and asynchronous transfers of data.</p>
+</li>
+<li>
+<p>What is the difference between sharable and dedicated devices? Give an example of each.</p>
+</li>
+<li>
+<p>Give five examples of user-triggered events that are common in graphical user interfaces.</p>
+</li>
+<li>
+<p>Give five examples of widgets that are common in graphical user interfaces.</p>
+</li>
+</ol>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2025-04-25 11:06:51 -0400
+Last updated 2025-04-28 15:32:35 -0400
 </div>
 </div>
 </body>

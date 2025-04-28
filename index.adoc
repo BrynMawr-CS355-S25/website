@@ -17,7 +17,7 @@ Instructor: link:https://www.cs.brynmawr.edu/~alinen[Aline Normoyle]
 
 * Welcome!
 * link:assts/asst08.html[Project: File System] due Sunday April 27. 
-* link:studyguide2.html[Study Guide Midterm II - May 1 in class - TBD]
+* link:studyguide2.html[Midterm II - May 1 in class]
 * Assignment resubmissions are due Sunday May 4. link:https://docs.google.com/forms/d/1TqQPFoMe8fzL1ieAaZIACkvJrVKvbxF4W-IbF7OV58o/edit[Please fill out this form for resubmissions.]
 * File System Demo and Code Review Meetings (30 min), May 5 - May 9: link:https://brynmawr-cs355-s25.slack.com/archives/C089CH6KSKT/p1745257061910979[Sign-up sheet link is on slack].
 * **No written questions due week 15**

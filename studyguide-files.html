@@ -471,7 +471,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Explain how multiple users could be supported in a single-level file system.</p>
+<p>Explain how multiple users might be supported in a single-level file system.</p>
 </li>
 </ol>
 </div>
@@ -486,7 +486,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Describe the process of booting a computer.</p>
 </li>
 <li>
-<p>What is the Master Boot Record (MBR)</p>
+<p>What is the Master Boot Record (MBR)?</p>
 </li>
 <li>
 <p>What is a partition?</p>
@@ -516,12 +516,393 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ol>
 </div>
 </li>
+<li>
+<p>Consider the following series of commands. Assume the starting current working directory is root. Draw the corresponding file system hierarchy.</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ mkdir B
+$ cd B
+$ mkdir A
+$ touch 6.txt</pre>
+</div>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>If we were using inodes, how many inodes would we need to represent the above file system?</p>
+</li>
+<li>
+<p>Suppose directories store the contents of the directory. Each entry of the table contains the following information: inode id, name (8 bytes), extension (3 bytes), and flags (4 bytes). The least significant bit of flags is 0 for files and 1 for directories. The most significant bit is 1 for a non-empty entry and 0 for an empty entry.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Define a struct type that represents the entries inside a directory. Make sure that all data types are properly byte-aligned.</p>
+</li>
+<li>
+<p>Write pseudocode that tests whether a directory entry is valid of not.</p>
+</li>
+<li>
+<p>Write pseudocode that tests whether a directory entry corresponds to a file or directory.</p>
+</li>
+<li>
+<p>Draw the contents of directory B.</p>
+</li>
+<li>
+<p>Describe how you would redesign the directory entries in order to support variable-sized filenames?</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Suppose we are using inodes. Describe the steps needed to lookup the file with path <code>/usr/ast/mbox</code></p>
+</li>
+<li>
+<p>Suppose we are using FAT. Describe the steps needed to lookup the file with path <code>/usr/ast/mbox</code></p>
+</li>
+<li>
+<p>Suppose we are using inodes. Describe the steps needed to lookup the file with path <code>../ast/mbox</code></p>
+</li>
+<li>
+<p>Consider a hierarchical file system. What three things need to happen when a file is deleted?</p>
+</li>
+<li>
+<p>If a crash occurs while deleting a file, how might the system become in an inconsistent state?</p>
+</li>
+<li>
+<p>Explain how journaling can help a file system recover from crashes.</p>
+</li>
+<li>
+<p>Why do journaling systems rely on indempotent actions?</p>
+</li>
+<li>
+<p>When using disks, why are bigger blocksizes more efficient?</p>
+</li>
+<li>
+<p>Suppose we are analyzing a disk system for time and size efficiency. The blocksize is 1 MB and the file is 64 KB.</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>If the disk uses 1 MB per track, has a combined seek and delay time of 9 ms, and a rotation time of 8.33 ms / MB, how much time is needed to fetch the file? (Recall the time = seek + delay + rotation * (k/1MB), where k is the number of bytes).</p>
+</li>
+<li>
+<p>How much space is wasted?</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Suppose we are analyzing a disk system for time and size efficiency. The blocksize is 1 KB and the file is 64 KB.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>If the disk uses 1 MB per track, has a combined seek and delay time of 9 ms, and a rotation time of 8.33 ms / MB, how much time is needed to fetch the file? (Recall the time = seek + delay + rotation * (k/1MB), where k is the number of bytes).</p>
+</li>
+<li>
+<p>How much space is wasted?</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>What is the difference between soft and hard caps in quota systems.</p>
+</li>
+<li>
+<p>Why might a quota system be necessary in a multiuser system?</p>
+</li>
+<li>
+<p>List three challenges of creating a good backup system.</p>
+</li>
+<li>
+<p>How does an incremental backup work?</p>
+</li>
+<li>
+<p>List two methods for making backups faster.</p>
+</li>
+<li>
+<p>What is the difference between a physical and logical dump?</p>
+</li>
+<li>
+<p>List three limitations of physical dumps.</p>
+</li>
+<li>
+<p>List the steps needed to created a logical dump.</p>
+</li>
+<li>
+<p>List the steps needed to restore a logical dump.</p>
+</li>
+<li>
+<p>How can inodes be checked for inconsistencies?</p>
+</li>
+<li>
+<p>How can directories be checked for inconsistencies?</p>
+</li>
+<li>
+<p>Suppose we have an inode based file system for which we are checking for inconsistencies. Is the following system consistent?</p>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 11.1111%;">
+<col style="width: 11.1111%;">
+<col style="width: 11.1111%;">
+<col style="width: 11.1111%;">
+<col style="width: 11.1111%;">
+<col style="width: 11.1112%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Blocks in use</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Free blocks</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>Suppose we have an inode based file system for which we are checking for inconsistencies. Is the following system consistent?</p>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 11.1111%;">
+<col style="width: 11.1111%;">
+<col style="width: 11.1111%;">
+<col style="width: 11.1111%;">
+<col style="width: 11.1111%;">
+<col style="width: 11.1112%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Blocks in use</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Free blocks</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>Suppose we have an inode based file system for which we are checking for inconsistencies. Is the following system consistent?</p>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 11.1111%;">
+<col style="width: 11.1111%;">
+<col style="width: 11.1111%;">
+<col style="width: 11.1111%;">
+<col style="width: 11.1111%;">
+<col style="width: 11.1112%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Blocks in use</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Free blocks</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>Suppose we have an inode based file system for which we are checking for inconsistencies. Is the following system consistent?</p>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 11.1111%;">
+<col style="width: 11.1111%;">
+<col style="width: 11.1111%;">
+<col style="width: 11.1111%;">
+<col style="width: 11.1111%;">
+<col style="width: 11.1112%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Blocks in use</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Free blocks</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>A file contains a link count of two. What does this mean?</p>
+</li>
+<li>
+<p>A file contains a link count of three, but it is only listed in two directories. What problems might result due to this inconsistency?</p>
+</li>
+<li>
+<p>A file contains a link count of one, but it is listed in two directories. What problems might results due to this inconsistency?</p>
+</li>
+<li>
+<p>List three features that improve disk read/write performance.</p>
+</li>
+<li>
+<p>What is a write-through cache?</p>
+</li>
+<li>
+<p>Suppose we are using caching for a file system in order to increase its performance. What is the risk of writing file blocks infrequently back to disk?</p>
+</li>
+<li>
+<p>Suppose we are using caching for a file system in order to increase its performance. What is the risk of writing inode blocks infrequently back to disk?</p>
+</li>
+<li>
+<p>Suppose we are using caching for a file system in order to increase its performance. What is the drawback of writing data back to disk too frequently?</p>
+</li>
+<li>
+<p>Describe how block read-ahead works.</p>
+</li>
+<li>
+<p>What is file system defragmentation? When should we use it?</p>
+</li>
+<li>
+<p>Suppose we have an inode file system with the following properties:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Blocksize: 16 bytes</p>
+</li>
+<li>
+<p>10 direct blocks</p>
+</li>
+<li>
+<p>4 indirect blocks</p>
+</li>
+<li>
+<p>1 double-indirect block</p>
+</li>
+<li>
+<p>1 triple-indirect block</p>
+</li>
+<li>
+<p>Block ids are 4-byte integers</p>
+</li>
+<li>
+<p>sizeof(indode) = 128 bytes</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>How many block IDS can we store in an indirect block?</p>
+</li>
+<li>
+<p>What is the max file size we can store using direct blocks?</p>
+</li>
+<li>
+<p>What is the max file size we can store using indirect blocks?</p>
+</li>
+<li>
+<p>What is the max file size we can store using double-indirect blocks?</p>
+</li>
+<li>
+<p>What is the max file size we can store using triple-indirect blocks?</p>
+</li>
+<li>
+<p>Suppose we have 300 byte file. Sketch a picture of how these blocks would be stored in an inode.</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Suppose we are using a FAT for a file system that contains one directory (/) which contains two files: A.txt and B.txt.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>All directories fit inside a 1 KB block.</p>
+</li>
+<li>
+<p>Suppose the root directory is at block 0</p>
+</li>
+<li>
+<p>Suppose A.txt uses blocks 2, 6, 7</p>
+</li>
+<li>
+<p>Suppose B.txt uses blocks 3, 4, 8</p>
+</li>
+<li>
+<p>Draw the contents of the first 10 FAT entries</p>
+</li>
+<li>
+<p>Draw the contents of the root directory block. Assume the blocks stores the file names and FAT table IDs.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Consider the CP/M file system which stored all files under a single directory. Sketch a program that would format a disk capable of holding 100 files.
+image::CPM.png[width=600px]</p>
+</li>
+<li>
+<p>Suppose a FAT table has 64 entries and the blocksize is 4 KB. What is the maximum number of bytes we can store? What is the maximum possible number of files?</p>
+</li>
+<li>
+<p>How does the ext2 system initialize files to avoid external fragmentation?</p>
+</li>
+<li>
+<p>How does the ext2 system arrange blocks to try to improve performance?</p>
+</li>
+</ol>
+</div>
+</li>
 </ol>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2025-04-25 16:48:29 -0400
+Last updated 2025-04-28 14:58:34 -0400
 </div>
 </div>
 </body>
