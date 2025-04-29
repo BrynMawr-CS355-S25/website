@@ -19,7 +19,7 @@ image::memory-free.png[width=600px]
 
 . Suppose we have processes in memory as follows. Suppose a new process requests 15K, which hole should we use if we were using a strategy of best fit, worst fit, and first fit?
 +
-image::memory-free.png[width=600px]
+image::memory.png[width=600px]
 
 . Suppose we are using bitmaps to manage free space for a 1 GB disk. How big must the bitmap be if we use 4 KB blocks? What about if we use 16 KB blocks? What is the disadvantage of using larger blocks?
 . Suppose we are using linked lists to manage free space for a 1 GB disk. How much additional space do we need if we use 4 KB blocks? What about if we use 16 KB blocks? 
